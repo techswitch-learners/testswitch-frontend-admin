@@ -1,0 +1,34 @@
+{
+  "name": "testswitch-frontend-admin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techswitch-learners/testswitch-frontend-admin.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/techswitch-learners/testswitch-frontend-admin/issues"
+  },
+  "homepage": "https://github.com/techswitch-learners/testswitch-frontend-admin#readme",
+  "dependencies": {
+    "next": "^9.3.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "node-sass": "^4.13.1",
+    "@types/node": "^13.11.1",
+    "@types/react": "^16.9.34",
+    "typescript": "^3.8.3"
+  }
+}
