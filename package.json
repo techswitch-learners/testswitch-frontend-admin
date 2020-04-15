@@ -1,13 +1,14 @@
 {
   "name": "testswitch-frontend-admin",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start -p $PORT"
+    "start": "next start",
+    "test": "jest"  
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/techswitch-learners/testswitch-frontend-admin.git"
@@ -19,16 +20,34 @@
     "url": "https://github.com/techswitch-learners/testswitch-frontend-admin/issues"
   },
   "homepage": "https://github.com/techswitch-learners/testswitch-frontend-admin#readme",
+  "jest": {
+    "preset": "ts-jest",
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "setupFilesAfterEnv": ["<rootDir>/_test_/setupTests.ts"],
+    "moduleNameMapper": {
+      "^.+\\.(css|less|scss)$": "babel-jest"
+    }
+  }, 
   "dependencies": {
-    "@zeit/next-sass": "^1.0.1",
-    "next": "^9.3.4",
+    "next": "^9.3.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "node-sass": "^4.13.1",
+    "@testing-library/jest-dom": "^5.5.0",
+    "@testing-library/react": "^10.0.2",
+    "@types/jest": "^25.2.1",
     "@types/node": "^13.11.1",
     "@types/react": "^16.9.34",
+    "@types/testing-library__react": "^10.0.1",
+    "@zeit/next-sass": "^1.0.1",
+    "jest": "^25.3.0",
+    "node-sass": "^4.13.1",
+    "ts-jest": "^25.3.1",
     "typescript": "^3.8.3"
-  }
+  },
+  "description": ""
 }
