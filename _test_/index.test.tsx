@@ -4,4 +4,6 @@ import Home from "../pages";
 
 test('Check that the home page renders',()=>{
     let home=render(<Home/>);
+    const tag=home.getByTestId('page-render-test');
+    expect(tag).toBeInTheDocument();
 });
