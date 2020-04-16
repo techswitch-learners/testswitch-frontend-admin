@@ -23,6 +23,11 @@
   "homepage": "https://github.com/techswitch-learners/testswitch-frontend-admin#readme",
   "jest": {
     "preset": "ts-jest",
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.jest.json"
+      }
+    },
     "moduleFileExtensions": [
       "ts",
       "tsx",
