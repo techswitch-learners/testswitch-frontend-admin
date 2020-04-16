@@ -12,13 +12,7 @@
     "jest": true
   },
   "rules": {
-  },
-  "settings": {
-    "react": {
-      "pragma": "React",
-      "version": "detect"
-    }
-  },
+  }, 
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
