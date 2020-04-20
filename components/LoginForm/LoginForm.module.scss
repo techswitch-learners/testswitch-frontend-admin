@@ -1,0 +1,33 @@
+﻿$font-size: 60px;
+$font-family: sans-serif;
+$font-color: orange;
+
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input{
+  color: $font-color;
+  background-color: white;
+  border: solid 2px $font-color;
+  font-family: $font-family;
+}
+
+.label{
+  color: $font-color;
+  font-size: $font-size/3;
+  font-family: $font-family;
+  margin-top: 10px;
+}
+
+.login{
+  background-color: $font-color;
+  border: none;
+  height: 40px;
+  width: 70px;
+  font-size: $font-size/4;
+  font-family: $font-family;
+  margin-top: 10px;
+}
