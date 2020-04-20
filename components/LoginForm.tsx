@@ -1,13 +1,10 @@
-﻿import React, {useContext, useState} from "react";
-import {NextPage} from "next";
-import scss from "../pageStyles/index.module.scss"
-
+﻿import React from "react";
 
 interface LoginFormProps {
-    userId : string;
+    userId: string;
     password: string;
-    setUserId : Function;
-    setPassword : Function;
+    setUserId: Function;
+    setPassword: Function;
 }
 
 export function LoginForm(props: LoginFormProps): JSX.Element {

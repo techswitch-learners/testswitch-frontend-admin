@@ -1,6 +1,5 @@
 ﻿import {LoginForm} from "../components/LoginForm";
 import React, {useContext, useState} from "react";
-import {NextPage} from "next";
 import scss from "../pageStyles/index.module.scss"
 
 
@@ -22,7 +21,6 @@ export default function Login(): JSX.Element {
                 password={password} 
                 setUserId={setUserId} 
                 setPassword={setPassword}/>
-
         </div>
     );
 }
