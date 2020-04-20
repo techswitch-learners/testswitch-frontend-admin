@@ -1,6 +1,7 @@
 ﻿import {LoginForm} from "../components/LoginForm/LoginForm";
 import React, {useState} from "react";
 import scss from "../pageStyles/login.module.scss";
+import Layout from "../components/Layout/layout";
 
 
 export default function Login(): JSX.Element {
@@ -9,7 +10,7 @@ export default function Login(): JSX.Element {
     const [password, setPassword] = useState("");
     
     return (
-        <div>
+        <Layout>
             <h1 className={scss.h1}>Candidate Manager</h1>
             <h2 className={scss.h2}>  Administrator Login</h2>
             <hr className={scss.hr}/>
@@ -18,6 +19,6 @@ export default function Login(): JSX.Element {
                 password={password}
                 setUserId={setUserId}
                 setPassword={setPassword}/>
-        </div>
+        </Layout>
     );
 }

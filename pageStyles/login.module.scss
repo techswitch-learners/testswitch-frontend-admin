@@ -1,14 +1,14 @@
 ﻿@import 'constants';
 
 .h1 {
-  font-size: $desktopHeaderFontSize;
+  font-size: $desktopHeaderFontSize/2;
   font-family: $softwireFont;
   color: $softwireYellow;
   text-align: center;
 }
 
 .h2{
-  font-size: $desktopHeaderFontSize/2;
+  font-size: $desktopHeaderFontSize/3;
   font-family: $softwireFont;
   color: $softwireYellow;
   text-align: center;
@@ -16,4 +16,14 @@
 
 .hr{
   border: 2px solid $softwireYellow;
+}
+
+@media (min-width: 768px){
+  .h1{
+    font-size: $desktopHeaderFontSize;
+  }
+  
+  .h2{
+    font-size: $desktopHeaderFontSize/2;
+  }
 }
