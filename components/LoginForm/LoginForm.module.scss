@@ -1,12 +1,10 @@
-﻿$font-size: 60px;
-$font-family: sans-serif;
-$font-color: orange;
+﻿@import '../../pageStyles/constants';
 
 .h2{
   text-align: center;
-  font-size: $font-size/2;
-  color: $font-color;
-  font-family: $font-family;
+  font-size: $desktopHeaderFontSize/2;
+  color: $softwireYellow;
+  font-family: $softwireFont;
 }
 
 .form{
@@ -16,25 +14,25 @@ $font-color: orange;
 }
 
 .input{
-  color: $font-color;
-  background-color: white;
-  border: solid 2px $font-color;
-  font-family: $font-family;
+  color: $softwireYellow;
+  background-color: $softwireWhite;
+  border: solid 2px $softwireYellow;
+  font-family: $softwireFont;
 }
 
 .label{
-  color: $font-color;
-  font-size: $font-size/3;
-  font-family: $font-family;
+  color: $softwireYellow;
+  font-size: $desktopHeaderFontSize/3;
+  font-family: $softwireFont;
   margin-top: 10px;
 }
 
 .login{
-  background-color: $font-color;
+  background-color: $softwireYellow;
   border: none;
   height: 40px;
   width: 70px;
-  font-size: $font-size/4;
-  font-family: $font-family;
+  font-size: $desktopHeaderFontSize/4;
+  font-family: $softwireFont;
   margin-top: 10px;
 }
