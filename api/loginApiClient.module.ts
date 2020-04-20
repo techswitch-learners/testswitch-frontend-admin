@@ -1,4 +1,4 @@
-﻿export async function apiTryLogin(userId: string, password: string){
+﻿export async function apiTryLogin(userId: string, password: string): Promise<void>{
     
     //TODO placeholder function until API is wired up.
     

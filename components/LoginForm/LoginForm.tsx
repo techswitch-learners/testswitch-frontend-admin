@@ -15,7 +15,7 @@ export function LoginForm(props: LoginFormProps): JSX.Element {
 
     const [status, setStatus] = useState<FormStatus>("READY");
 
-    function tryLogin(event: FormEvent) {
+    function tryLogin(event: FormEvent): void {
         event.preventDefault();
         apiTryLogin(props.userId, props.password)
             .then(() => setStatus("FINISHED"))
@@ -23,9 +23,7 @@ export function LoginForm(props: LoginFormProps): JSX.Element {
     }
 
     if (status === "FINISHED") {
-        return <div>
-            Login Form Submitted
-        </div>
+        return <h2 className={scss.h2}>Login Form Submitted</h2>;
     }
 
     return (
