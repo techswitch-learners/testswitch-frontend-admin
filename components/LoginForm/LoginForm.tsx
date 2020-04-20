@@ -12,14 +12,16 @@ interface LoginFormProps {
 type FormStatus = "READY" | "FINISHED";
 
 export function LoginForm(props: LoginFormProps): JSX.Element {
-
+    
     const [status, setStatus] = useState<FormStatus>("READY");
 
     function tryLogin(event: FormEvent): void {
         event.preventDefault();
         apiTryLogin(props.userId, props.password)
-            .then(() => setStatus("FINISHED"))
-            .catch(() => alert)
+            .catch((exp: DOMException) => {
+                alert(exp);
+            })
+            .then(canBeSubmitted => canBeSubmitted ? setStatus("FINISHED"):{});
     }
 
     if (status === "FINISHED") {
