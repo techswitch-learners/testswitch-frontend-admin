@@ -7,7 +7,6 @@ import Layout from "../components/Layout/layout";
 const Candidates: NextPage = () =>
     <Layout>
         <h1 className={scss.h1}>Candidates</h1>
-        
     </Layout>;
 
 export default Candidates;
