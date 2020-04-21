@@ -6,7 +6,7 @@
         return false;
     } 
     else if (userId == "") {
-        alert("You did not enter a User ID! Please enter your user ID.")
+        alert("You did not enter a User ID! Please enter your user ID.");
         return false;
     }
     //TODO
