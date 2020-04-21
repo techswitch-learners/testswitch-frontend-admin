@@ -9,11 +9,9 @@ interface CandidateListProps {
     
 }
 
-
 export function CandidateList(props: CandidateListProps): JSX.Element {
-    
-    
-    const candidates = ["Michael Walker", "Stephen Jackson"];
+
+    const candidates: string[] = ["Michael Walker", "Stephen Jackson"];
     
     return (
         <ul className={scss.list}>

@@ -6,8 +6,5 @@
     
     //put into list
     
-    var candidateList = [""];
-    
-    
-    return candidateList;
+    return ["Michael Walker", "Stephen Jackson"];
 }
