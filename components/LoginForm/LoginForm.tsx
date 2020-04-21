@@ -5,18 +5,19 @@ import scss from "./LoginForm.module.scss";
 interface LoginFormProps {
     userId: string;
     password: string;
-    setUserId: Function;
-    setPassword: Function;
+    setUserId: (userId: string) => void;
+    setPassword: (password: string) => void;
 }
 
 type FormStatus = "READY" | "FINISHED";
 
 export function LoginForm(props: LoginFormProps): JSX.Element {
     
+    const {userId, password, setUserId, setPassword} = props;
+    
     const [status, setStatus] = useState<FormStatus>("READY");
 
     function tryLogin(event: FormEvent): void {
-        event.preventDefault();
         apiTryLogin(props.userId, props.password)
             .catch((exp: DOMException) => {
                 alert(exp);

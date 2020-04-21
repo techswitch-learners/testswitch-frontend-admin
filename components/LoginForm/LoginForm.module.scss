@@ -1,8 +1,8 @@
 ﻿@import '../../pageStyles/constants';
 
-.h2{
+.subHeader{
   text-align: center;
-  font-size: $desktopHeaderFontSize/2;
+  font-size: $desktopSubHeaderFontSize;
   color: $softwireYellow;
   font-family: $softwireFont;
 }
@@ -22,7 +22,7 @@
 
 .label{
   color: $softwireYellow;
-  font-size: $desktopHeaderFontSize/3;
+  font-size: $contentFontSize;
   font-family: $softwireFont;
   margin-top: 10px;
 }
@@ -30,9 +30,8 @@
 .login{
   background-color: $softwireYellow;
   border: none;
-  height: 40px;
-  width: 70px;
-  font-size: $desktopHeaderFontSize/4;
+  padding: 10px 20px;
+  font-size: $buttonFontSize;
   font-family: $softwireFont;
   margin-top: 10px;
 }

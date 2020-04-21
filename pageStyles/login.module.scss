@@ -1,29 +1,29 @@
 ﻿@import 'constants';
 
-.h1 {
-  font-size: $desktopHeaderFontSize/2;
+.pageHeader {
+  font-size: $mobileHeaderFontSize;
   font-family: $softwireFont;
   color: $softwireYellow;
   text-align: center;
 }
 
-.h2{
-  font-size: $desktopHeaderFontSize/3;
+.subHeader{
+  font-size: $mobileSubHeaderFontSize;
   font-family: $softwireFont;
   color: $softwireYellow;
   text-align: center;
 }
 
-.hr{
+.lineBreak{
   border: 2px solid $softwireYellow;
 }
 
 @media (min-width: 768px){
-  .h1{
+  .pageHeader{
     font-size: $desktopHeaderFontSize;
   }
   
-  .h2{
-    font-size: $desktopHeaderFontSize/2;
+  .subHeader{
+    font-size: $desktopSubHeaderFontSize;
   }
 }

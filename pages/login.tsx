@@ -2,18 +2,18 @@
 import React, {useState} from "react";
 import scss from "../pageStyles/login.module.scss";
 import Layout from "../components/Layout/layout";
+import {NextPage} from "next";
 
-
-export default function Login(): JSX.Element {
+const LoginPage: NextPage = () => {
 
     const [userId, setUserId] = useState("");
     const [password, setPassword] = useState("");
-    
+
     return (
         <Layout>
-            <h1 className={scss.h1}>Candidate Manager</h1>
-            <h2 className={scss.h2}>  Administrator Login</h2>
-            <hr className={scss.hr}/>
+            <h1 className={scss.pageHeader}>Candidate Manager</h1>
+            <h2 className={scss.subHeader}> Administrator Login</h2>
+            <hr className={scss.lineBreak}/>
             <LoginForm
                 userId={userId}
                 password={password}
@@ -21,4 +21,5 @@ export default function Login(): JSX.Element {
                 setPassword={setPassword}/>
         </Layout>
     );
-}
+};
+export default LoginPage;
