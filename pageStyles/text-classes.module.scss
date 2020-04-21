@@ -1,0 +1,29 @@
+﻿@import "constants";
+
+.pageHeader {
+  font-size: $mobileHeaderFontSize;
+  font-family: $softwireFont;
+  color: $softwireYellow;
+  text-align: center;
+}
+
+.subHeader{
+  font-size: $mobileSubHeaderFontSize;
+  font-family: $softwireFont;
+  color: $softwireYellow;
+  text-align: center;
+}
+
+.lineBreak{
+  border: 2px solid $softwireYellow;
+}
+
+@media (min-width: 768px){
+  .pageHeader{
+    font-size: $desktopHeaderFontSize;
+  }
+
+  .subHeader{
+    font-size: $desktopSubHeaderFontSize;
+  }
+}
