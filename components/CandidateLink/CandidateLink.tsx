@@ -5,7 +5,7 @@ import Link from "next/link";
 
 
 interface CandidateLinkProps {
-    name : string;
+    name: string;
 }
 
 
