@@ -6,12 +6,12 @@ interface CandidateListProps {
     
 }
 
+
 export function CandidateList(props: CandidateListProps): JSX.Element {
     
-    
     return (
-        <div>
-            
+        <div className={scss.test}>
+            Hello
         </div>
     )
 }
