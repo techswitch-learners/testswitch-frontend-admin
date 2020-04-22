@@ -1,27 +1,44 @@
 ﻿const API_URL = "https://testswitch-api-staging.herokuapp.com/candidates"; //TODO change to /signin when endpoint exists
 
-async function loginCredentialsIncorrect(): Promise<boolean>{
-    const response = await fetch(API_URL);
-    return response.status == 200;
-
-    //TODO add if(response.status == 403) then not authorized, anything else is another issue.
-}
-
-export async function apiTryLogin(userId: string, password: string): Promise<boolean> {
+function clientSideValidation(userId: string, password: string): boolean {
     
     if (password == "") {
         alert("You did not enter a password! please enter your password.");
         return false;
     } 
-    else if (userId == "") {
+    if (userId == "") {
         alert("You did not enter a User ID! Please enter your user ID.");
         return false;
     }
-    else if(await loginCredentialsIncorrect()){
-        alert("Your UserID and Password did not match! Please try again.");
+    return true;
+}
+
+async function tryLoginWithApi(userId: string, password: string): Promise<number>{
+    //TODO: delete test constant and return actual status code from api
+    // const response = await fetch(API_URL); etc
+    // const statusCode = response.status;
+    
+    //Check how the page works with 200, 403, and any other error code.
+    return 403;
+}
+
+export async function isLoginAttemptValid(userId: string, password: string): Promise<boolean> {
+    
+    const credentialsValidatedByClient = clientSideValidation(userId, password);
+    
+    if(!credentialsValidatedByClient){
         return false;
     }
-    else{
-        return true;
+    
+    const statusCodeFromServer = await tryLoginWithApi(userId, password);
+    
+    if(statusCodeFromServer == 403){
+        alert("Those details are not in our system! Please try again");
+        return false;
     }
+    if(statusCodeFromServer != 200){
+        alert("Something went wrong, please try again.");
+        return false;
+    }
+    return true;
 }

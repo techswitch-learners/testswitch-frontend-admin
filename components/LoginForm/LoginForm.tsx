@@ -1,4 +1,4 @@
-﻿import {apiTryLogin} from "../../api/loginApiClient.module";
+﻿import {isLoginAttemptValid} from "../../api/loginApiClient.module";
 import React, {FormEvent, useState} from "react";
 import scss from "./LoginForm.module.scss";
 import {useRouter} from "next/router";
@@ -16,7 +16,7 @@ export function LoginForm(props: LoginFormProps): JSX.Element {
     const router = useRouter();
 
     function tryLogin(event: FormEvent): void {
-        apiTryLogin(props.userId, props.password)
+        isLoginAttemptValid(props.userId, props.password)
             .then(canBeSubmitted => canBeSubmitted ? router.push('/candidates'): {});
         event.preventDefault();
     }
