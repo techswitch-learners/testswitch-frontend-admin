@@ -10,28 +10,15 @@ interface LoginFormProps {
     setPassword: (password: string) => void;
 }
 
-type FormStatus = "READY" | "FINISHED";
-
 export function LoginForm(props: LoginFormProps): JSX.Element {
     
     const {userId, password, setUserId, setPassword} = props;
-    
-    const [status, setStatus] = useState<FormStatus>("READY");
-    
     const router = useRouter();
 
     function tryLogin(event: FormEvent): void {
         apiTryLogin(props.userId, props.password)
             .then(canBeSubmitted => canBeSubmitted ? router.push('/candidates'): {});
         event.preventDefault();
-    }
-    
-    function goToCandidatesPage(){
-        
-    }
-
-    if (status === "FINISHED") {
-        return <h2 className={scss.h2}>Login Form Submitted</h2>;
     }
 
     return (
