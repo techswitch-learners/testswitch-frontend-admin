@@ -1,6 +1,7 @@
 ﻿import {apiTryLogin} from "../../api/loginApiClient.module";
 import React, {FormEvent, useState} from "react";
 import scss from "./LoginForm.module.scss";
+import {useRouter} from "next/router";
 
 interface LoginFormProps {
     userId: string;
@@ -16,13 +17,17 @@ export function LoginForm(props: LoginFormProps): JSX.Element {
     const {userId, password, setUserId, setPassword} = props;
     
     const [status, setStatus] = useState<FormStatus>("READY");
+    
+    const router = useRouter();
 
     function tryLogin(event: FormEvent): void {
         apiTryLogin(props.userId, props.password)
-            .catch((exp: DOMException) => {
-                alert(exp);
-            })
-            .then(canBeSubmitted => canBeSubmitted ? setStatus("FINISHED"):{});
+            .then(canBeSubmitted => canBeSubmitted ? router.push('/candidates'): {});
+        event.preventDefault();
+    }
+    
+    function goToCandidatesPage(){
+        
     }
 
     if (status === "FINISHED") {
