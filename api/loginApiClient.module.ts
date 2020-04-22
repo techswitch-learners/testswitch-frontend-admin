@@ -1,6 +1,5 @@
 ﻿export async function apiTryLogin(userId: string, password: string): Promise<boolean> {
-
-    //TODO placeholder function until API is wired up.
+    
     if (password == "") {
         alert("You did not enter a password! please enter your password.");
         return false;
@@ -14,14 +13,15 @@
         return false;
     }
     else{
-        alert("user ID:" + userId + ", password: " + password);
         return true;
     }
 }
 
-const API_URL: string = "https://localhost:5001/weatherforecast";
+const API_URL: string = "https://testswitch-api-staging.herokuapp.com/candidates"; //TODO change to /signin when endpoint exists
 
 async function loginCredentialsIncorrect(): Promise<boolean>{
     let response = await fetch(API_URL);
-    return response.status != 200;
+    return response.status == 200;
+    
+    //TODO add if(repsonse.status == 403) then not authorized, anything else is another issue.
 }
