@@ -1,21 +1,10 @@
-﻿export async function apiTryLogin(userId: string, password: string): Promise<boolean> {
+const API_URL = "https://testswitch-api-staging.herokuapp.com/candidates"; //TODO change to /signin when endpoint exists
 
-    //TODO placeholder function until API is wired up.
-    if (password == "") {
-        alert("You did not enter a password! please enter your password.");
-        return false;
-    } 
-    else if (userId == "") {
-        alert("You did not enter a User ID! Please enter your user ID.");
-        return false;
-    }
-    //TODO
-    // else if(loginCredentialsIncorrect){
-    //     alert("Your UserID and Password did not match! Please try again.")
-    //     return false;
-    // }
-    else{
-        alert("user ID:" + userId + ", password: " + password);
-        return true;
-    }
+export async function tryLoginApi(userId: string, password: string): Promise<number>{
+    //TODO: delete test constant and return actual status code from api
+    // const response = await fetch(API_URL); etc
+    // const statusCode = response.status;
+    
+    //Check how the page works with 200, 403, and any other error code.
+    return 200;
 }
