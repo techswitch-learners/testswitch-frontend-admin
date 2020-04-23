@@ -1,6 +1,6 @@
 ﻿import {LoginForm} from "../components/LoginForm/LoginForm";
 import React, {useState} from "react";
-import scss from "../pageStyles/login.module.scss";
+import textStyle from "../pageStyles/text-classes.module.scss";
 import Layout from "../components/Layout/layout";
 import {NextPage} from "next";
 
@@ -11,9 +11,9 @@ const LoginPage: NextPage = () => {
 
     return (
         <Layout>
-            <h1 className={scss.pageHeader}>Candidate Manager</h1>
-            <h2 className={scss.subHeader}> Administrator Login</h2>
-            <hr className={scss.lineBreak}/>
+            <h1 className={textStyle.pageHeader}>Candidate Manager</h1>
+            <h2 className={textStyle.subHeader}> Administrator Login</h2>
+            <hr className={textStyle.lineBreak}/>
             <LoginForm
                 userId={userId}
                 password={password}
