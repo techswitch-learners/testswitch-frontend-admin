@@ -8,7 +8,7 @@ interface TestSubmissionsLinkProps {
 
 export function TestSubmissionsLink(props: TestSubmissionsLinkProps) : JSX.Element {
     
-    const ref: string = "/test-submissions/" + props.test; 
+    const ref: string = "/test-submissions/"; 
    
     //TODO: how will results appear to admin? for now put textarea as placeholder
 

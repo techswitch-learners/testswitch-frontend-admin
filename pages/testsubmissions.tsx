@@ -5,7 +5,7 @@ import Layout from "../components/Layout/layout";
 import {TestSubmissionsList} from "../components/TestSubmissionsList/TestSubmissionsList";
 
 const TestSubmissions: NextPage = () => {
-
+    //TODO: link Candidate Name header to API, to generate candidate name
     return (
         <Layout>
             <h1 className={textStyle.pageHeader}>Test Submissions</h1>

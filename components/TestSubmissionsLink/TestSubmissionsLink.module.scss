@@ -6,6 +6,7 @@
   color: $softwireWhite;
   list-style: none;
   display: block;
+  text-align: center;
 }
 
 .link{
@@ -22,13 +23,11 @@
 @media (min-width: 768px){
   .textArea {
     width: 700px;
-    height: 120px;
   }
 }
 
 @media (min-width: 1024px) {
   .textArea {
     width: 900px;
-    height: 120px;
   }
 }
