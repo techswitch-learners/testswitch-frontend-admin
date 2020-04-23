@@ -6,12 +6,13 @@ import Link from "next/link";
 
 interface CandidateLinkProps {
     name: string;
+    id: number;
 }
 
 
 export function CandidateLink(props: CandidateLinkProps): JSX.Element {
 
-    const ref: string = "/candidates/" + props.name;
+    const ref: string = "/candidates/" + props.id;
     
     return (
         <li className={textStyles.listItem}>

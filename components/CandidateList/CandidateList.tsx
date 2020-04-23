@@ -8,12 +8,20 @@ export function CandidateList(): JSX.Element {
 
     //TODO: use getCandidates function to get actual data
     
-    const candidates: string[] = ["Michael Walker", "Stephen Jackson"];
+    type Candidate = {
+        name: string;
+        id: number;
+    }
+    
+    const candidates: Candidate[] = [
+        {name: "Michael Walker", id: 1}, 
+        {name: "Stephen Jackson", id: 2},
+        ];
     
     return (
         <ul className={scss.list}>
             {
-                candidates.map(name => <CandidateLink key={candidates.indexOf(name)} name={name}/>)
+                candidates.map(candidate => <CandidateLink key={candidates.indexOf(candidate)} name={candidate.name} id={candidate.id}/>)
             }
         </ul>
     )
