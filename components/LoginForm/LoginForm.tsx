@@ -15,19 +15,6 @@ export function LoginForm(props: LoginFormProps): JSX.Element {
     const {userId, password, setUserId, setPassword} = props;
     const router = useRouter();
 
-    function allCredentialsProvided(userId: string, password: string): boolean{
-
-        if (password == "") {
-            alert("You did not enter a password! please enter your password.");
-            return false;
-        }
-        if (userId == "") {
-            alert("You did not enter a User ID! Please enter your user ID.");
-            return false;
-        }
-        return true;
-    }
-
     function credentialsAreValid(statusCode: number): boolean {
 
         if (statusCode == 403) {
@@ -42,28 +29,22 @@ export function LoginForm(props: LoginFormProps): JSX.Element {
     }
 
     async function tryLogin(event: FormEvent): Promise<void> {
-        //Validate Client Side
-        if (allCredentialsProvided(props.userId, props.password)) {
-            
-            //Check api for credentials
             const apiStatusCode = await tryLoginApi(props.userId, props.password);
-            
-            //Validate Server Side
             credentialsAreValid(apiStatusCode) ? await router.push('/candidates') : {};
-        }
         event.preventDefault();
     }
 
     return (
         <form onSubmit={tryLogin} className={scss.form}>
             <label className={scss.label}>
-                User Id:
+                Email:
                 <br/>
                 <input
                     className={scss.input}
-                    type={"text"}
+                    type={"email"}
                     value={props.userId}
                     onChange={event => props.setUserId(event.target.value)}
+                    required={true}
                 />
             </label>
             <label className={scss.label}>
@@ -74,6 +55,7 @@ export function LoginForm(props: LoginFormProps): JSX.Element {
                     type={"password"}
                     value={props.password}
                     onChange={event => props.setPassword(event.target.value)}
+                    required={true}
                 />
             </label>
             <button className={scss.login} type="submit">Log In</button>
