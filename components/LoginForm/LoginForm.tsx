@@ -1,4 +1,4 @@
-﻿import {validateCredentialsInApi} from "../../api/loginApiClient.module";
+﻿import {tryLoginApi} from "../../api/loginApiClient.module";
 import React, {FormEvent, useState} from "react";
 import scss from "./LoginForm.module.scss";
 import {useRouter} from "next/router";
@@ -15,7 +15,7 @@ export function LoginForm(props: LoginFormProps): JSX.Element {
     const {userId, password, setUserId, setPassword} = props;
     const router = useRouter();
 
-    async function clientSideValidation(userId: string, password: string): Promise<boolean> {
+    function allCredentialsProvided(userId: string, password: string): boolean{
 
         if (password == "") {
             alert("You did not enter a password! please enter your password.");
@@ -28,11 +28,29 @@ export function LoginForm(props: LoginFormProps): JSX.Element {
         return true;
     }
 
-    function tryLogin(event: FormEvent): void {
-        clientSideValidation(props.userId, props.password)
-            .then(canBeCheckedInApi => canBeCheckedInApi ?
-                validateCredentialsInApi(props.userId, props.password) : false)
-            .then(canBeSubmitted => canBeSubmitted ? router.push('/candidates') : {});
+    function credentialsAreValid(statusCode: number): boolean {
+
+        if (statusCode == 403) {
+            alert("Those details are not in our system! Please try again");
+            return false;
+        }
+        if (statusCode != 200) {
+            alert("Something went wrong, please try again.");
+            return false;
+        }
+        return true;
+    }
+
+    async function tryLogin(event: FormEvent): Promise<void> {
+        //Validate Client Side
+        if (allCredentialsProvided(props.userId, props.password)) {
+            
+            //Check api for credentials
+            const apiStatusCode = await tryLoginApi(props.userId, props.password);
+            
+            //Validate Server Side
+            credentialsAreValid(apiStatusCode) ? await router.push('/candidates') : {};
+        }
         event.preventDefault();
     }
 
