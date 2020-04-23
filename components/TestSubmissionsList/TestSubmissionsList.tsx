@@ -7,7 +7,7 @@ export function TestSubmissionsList(): JSX.Element {
     
     //TODO: getTestSubmissions result from API
     
-    const tests: string [] = ["Test 1, Test 2"];
+    const tests: string [] = ["Test 1", "Test 2", "Test 3"];
     
     return (
         <ul className={scss.list}>

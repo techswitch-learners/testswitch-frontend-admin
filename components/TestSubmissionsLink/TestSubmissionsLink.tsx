@@ -17,6 +17,9 @@ export function TestSubmissionsLink(props: TestSubmissionsLinkProps) : JSX.Eleme
             <Link href={ref}>
                 <p className={textStyles.link}>{props.test}</p>
             </Link>
+            <textarea className={textStyles.textArea}>
+                Placeholder for Test Results
+            </textarea>
         </li>
     );
 }
