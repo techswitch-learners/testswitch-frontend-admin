@@ -21,7 +21,7 @@ export function CandidateList(): JSX.Element {
     return (
         <ul className={scss.list}>
             {
-                candidates.map(candidate => <CandidateLink key={candidates.indexOf(candidate)} name={candidate.name} id={candidate.id}/>)
+                candidates.map((candidate, index) => <CandidateLink key={index} name={candidate.name} id={candidate.id}/>)
             }
         </ul>
     )
