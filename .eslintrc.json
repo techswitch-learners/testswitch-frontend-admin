@@ -12,6 +12,7 @@
     "jest": true
   },
   "rules": {
+    "react/prop-types": 0
   }, 
   "globals": {
     "Atomics": "readonly",
