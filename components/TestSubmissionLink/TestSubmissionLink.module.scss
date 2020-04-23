@@ -1,0 +1,17 @@
+﻿@import '../../pageStyles/constants';
+
+.listItem{
+  font-family: $softwireFont;
+  font-size: $contentFontSize;
+  color: $softwireWhite;
+  list-style: none;
+  display: block;
+}
+
+.link{
+  text-decoration: none;
+}
+
+.separator{
+  border: 1px solid $softwireWhite;
+}
