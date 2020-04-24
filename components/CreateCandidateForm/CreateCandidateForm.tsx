@@ -71,7 +71,7 @@ export function CreateCandidateForm(props: CreateCandidateFormProps): JSX.Elemen
                     required={true}
                 />
             </label>
-            <button className={scss.login} type="submit">Create</button>
+            <button className={scss.createButton} type="submit">Create</button>
         </form>
     );
 }
