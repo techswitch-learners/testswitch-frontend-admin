@@ -44,6 +44,7 @@ export function CreateCandidateForm(props: CreateCandidateFormProps): JSX.Elemen
                 <input
                     className={scss.input}
                     type={"text"}
+                    name={"firstName"}
                     value={props.firstName}
                     onChange={event => props.setFirstName(event.target.value)}
                     required={true}
@@ -55,6 +56,7 @@ export function CreateCandidateForm(props: CreateCandidateFormProps): JSX.Elemen
                 <input
                     className={scss.input}
                     type={"text"}
+                    name={lastName}
                     value={props.lastName}
                     onChange={event => props.setLastName(event.target.value)}
                     required={true}
@@ -66,6 +68,7 @@ export function CreateCandidateForm(props: CreateCandidateFormProps): JSX.Elemen
                 <input
                     className={scss.input}
                     type={"email"}
+                    name={"email"}
                     value={props.email}
                     onChange={event => props.setEmail(event.target.value)}
                     required={true}
