@@ -4,13 +4,7 @@
   font-family: $softwireFont;
   font-size: $contentFontSize;
   color: $softwireWhite;
-  list-style: none;
-  display: block;
-  text-align: center;
-}
-
-.link{
-  text-decoration: none;
+  @include sharedListStyle;
 }
 
 .textArea {

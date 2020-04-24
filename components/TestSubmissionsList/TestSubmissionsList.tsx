@@ -1,6 +1,6 @@
 ﻿import React from "react";
 import scss from './TestSubmissionsList.module.scss';
-import {TestSubmissionsLink} from "../TestSubmissionsLink/TestSubmissionsLink";
+import {TestSubmissionsResults} from "../TestSubmissionsResults/TestSubmissionsResults";
 
 
 export function TestSubmissionsList(): JSX.Element {
@@ -12,7 +12,7 @@ export function TestSubmissionsList(): JSX.Element {
     return (
         <ul className={scss.list}>
             {
-                tests.map(test => <TestSubmissionsLink key={tests.indexOf(test)} test={test}/>)
+                tests.map(test => <TestSubmissionsResults key={tests.indexOf(test)} test={test}/>)
             }
         </ul>
     )
