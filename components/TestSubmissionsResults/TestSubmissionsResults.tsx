@@ -10,8 +10,8 @@ export function TestSubmissionsResults(props: TestSubmissionsResultsProps): JSX.
     //TODO: how will results appear to admin? for now put textarea as placeholder
 
     return (
-        <li className={textStyles.listItem}>
-                <p>{props.test}</p>
+        <li>
+            <h2 className={textStyles.testTitle}>{props.test}</h2>
             <textarea className={textStyles.textArea}>
                 Placeholder for Test Results
             </textarea>

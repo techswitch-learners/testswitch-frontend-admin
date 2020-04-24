@@ -4,11 +4,11 @@
   font-family: $softwireFont;
   font-size: $contentFontSize;
   color: $softwireWhite;
-  @include sharedListStyle;
+  @include list;
 }
 
 .link{
-  @include sharedLinkShare;
+  @include link;
 }
 
 .separator{

@@ -1,10 +1,9 @@
 ﻿@import '../../pageStyles/constants';
 
-.listItem{
+.testTitle{
   font-family: $softwireFont;
   font-size: $contentFontSize;
   color: $softwireWhite;
-  @include sharedListStyle;
 }
 
 .textArea {

@@ -12,12 +12,12 @@ $contentFontSize: 20px;
 $buttonFontSize: 15px;
 
 //List Style
-@mixin sharedListStyle {
+@mixin list {
   list-style: none;
   display: block;
 }
 
-@mixin sharedLinkShare {
+@mixin link {
   text-decoration: none;
 }
 
