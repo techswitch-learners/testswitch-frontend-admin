@@ -1,43 +1,38 @@
 ﻿@import 'pageStyles/constants';
 
-.link {
-  margin: unset;
+.subHeaderWithLink{
+  position: relative;
+  padding: 10px 0px;
 }
 
-.desktopButton {
+.createButton {
   background-color: $softwireYellow;
+  text-decoration: none;
+  color: black;
   border: none;
-  padding: 5px 15px;
-  font-size: 20px;
+  padding: 6px 12px;
+  font-size: 25px;
   font-weight: bold;
-  margin-top: 10px;
-  position: fixed;
-  display: none;
+  position: absolute;
+  top: 0;
+  right: 10px;
   
   :hover{
     text-decoration: underline;
     cursor: pointer;
   }
     
-  @media (min-width: 768px) {
-    right: 10px;
-    top: 265px;
-    display: block;
+  @media (min-width: 769px) {
+    font-size: 20px;
+    padding: 5px 15px;
+    top: unset;
   }
 }
 
-.mobileButton {
-  background-color: $softwireYellow;
-  padding: 1px 8px 0 7px;
-  margin: 0;
-  border: none;
-  font-size: 25px;
-  font-weight: bold;
-  position: fixed;
-  right: 10px;
-  top: 153px;
-  
-  @media (min-width: 768px){
-    display: none;
+.desktopText{
+  display: none;
+  @media (min-width: 769px){
+    display: unset;
+    padding-left: 7px;
   }
 }
