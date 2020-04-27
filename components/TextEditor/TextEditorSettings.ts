@@ -1,4 +1,4 @@
-﻿﻿import {TextEditorOptions} from '../../Models/TextEditorOptions';
+﻿import {TextEditorOptions} from '../../Models/TextEditorOptions';
 
 const TextEditorSettings: TextEditorOptions = {
     readOnly: true,
