@@ -13,9 +13,7 @@ export interface Candidate{
 }
 
 export async function getCandidates(): Promise<ListResponse<Candidate>> {
-    const apiUrl=process.env.REACT_APP_API_URL;
-    const response = await fetch(`${apiUrl}/candidates`);
-    
+    const response = await fetch(`https://testswitch-api-staging.herokuapp.com/candidates`);    
     if(response.status==200){
         return await response.json();
     }
