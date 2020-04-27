@@ -11,3 +11,13 @@ $mobileSubHeaderFontSize: 20px;
 $contentFontSize: 20px;
 $buttonFontSize: 15px;
 
+//List Style
+@mixin list {
+  list-style: none;
+  display: block;
+}
+
+@mixin link {
+  text-decoration: none;
+}
+
