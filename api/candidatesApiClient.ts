@@ -6,10 +6,10 @@
     previousPage: string;
 }
 export interface Candidate{
-    id:number;
-    firstName:string;
-    lastName:string;
-    guid:string;
+    id: number;
+    firstName: string;
+    lastName: string;
+    guid: string;
 }
 
 export async function getCandidates(): Promise<ListResponse<Candidate>> {
