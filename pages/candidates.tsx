@@ -11,7 +11,7 @@ const Candidates: NextPage = () => {
     return (
         <Layout>
             <h1 className={textStyle.pageHeader}>Candidate Manager</h1>
-            <button className={scss.desktopButton}><Link href={"/create"}><p className={scss.link}>New Candidate</p></Link></button>
+            <button className={scss.desktopButton}><Link href={"/create"}><p className={scss.link}>+ Create Candidate</p></Link></button>
             <button className={scss.mobileButton}><Link href={"/create"}><p className={scss.link}>+</p></Link></button>
             <h2 className={textStyle.subHeader}> Select a Candidate...</h2>
             <hr className={textStyle.lineBreak}/>

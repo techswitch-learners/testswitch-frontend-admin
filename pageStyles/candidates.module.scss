@@ -8,15 +8,13 @@
   background-color: $softwireYellow;
   border: none;
   padding: 5px 15px;
-  font-size: $buttonFontSize;
-  font-family: $softwireFont;
+  font-size: 20px;
   font-weight: bold;
   margin-top: 10px;
   position: fixed;
   display: none;
   
   :hover{
-    background-color: black;
     text-decoration: underline;
     cursor: pointer;
   }
@@ -30,15 +28,14 @@
 
 .mobileButton {
   background-color: $softwireYellow;
-  padding: 1px 10px 0 9px;
+  padding: 1px 8px 0 7px;
   margin: 0;
   border: none;
-  border-radius: 10px;
   font-size: 25px;
-  font-family: $softwireFont;
   font-weight: bold;
   position: fixed;
   right: 10px;
+  top: 153px;
   
   @media (min-width: 768px){
     display: none;
