@@ -4,10 +4,10 @@ import {Candidate, getCandidates, ListResponse} from "../../api/candidatesApiCli
 import {CandidateLink} from "../CandidateLink/CandidateLink";
 
 interface CandidatesListProps {
-    fetchCandidates: () => Promise<ListResponse<Candidate>>
+    fetchCandidates: () => Promise<ListResponse<Candidate>>;
 }
 
-export function CandidateList(props:CandidatesListProps): JSX.Element {
+export function CandidateList(props: CandidatesListProps): JSX.Element {
 
     //TODO: use getCandidates function to get actual data
     const [candidates, setCandidates] = useState<Candidate[]>([]);
