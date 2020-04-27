@@ -1,8 +1,6 @@
-﻿import {tryCreateApi} from "../../api/candidatesApiClient";
-import React, {FormEvent, useState} from "react";
+﻿import React, {FormEvent, useState} from "react";
 import scss from "./CreateCandidate.module.scss";
 import {useRouter} from "next/router";
-import {API_ROUTE} from "next/dist/lib/constants";
 
 
 export function CreateCandidateForm(): JSX.Element {
