@@ -5,6 +5,7 @@ import scss from "../pageStyles/candidates.module.scss";
 import Layout from "../components/Layout/layout";
 import {CandidateList} from "../components/CandidateList/CandidateList";
 import Link from "next/link";
+import {getCandidates} from "../api/candidatesApiClient";
 
 const Candidates: NextPage = () => {
 
@@ -16,7 +17,7 @@ const Candidates: NextPage = () => {
                 <Link href={"/create"}><a className={scss.createButton}>+<span className={scss.desktopText}>Create Candidate</span></a></Link>
             </div>
             <hr className={textStyle.lineBreak}/>
-            <CandidateList/>
+            <CandidateList fetchCandidates={getCandidates} />
         </Layout>
     );
 };
