@@ -4,48 +4,45 @@ import scss from "./CreateCandidate.module.scss";
 import {useRouter} from "next/router";
 import {API_ROUTE} from "next/dist/lib/constants";
 
-interface CreateCandidateFormProps {
-   
-}
 
-export function CreateCandidateForm(props: CreateCandidateFormProps): JSX.Element {
+export function CreateCandidateForm(): JSX.Element {
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const router = useRouter();
 
-    function candidateIsValid(statusCode: number): boolean {
-        if (statusCode == 403){
-            router.push('/login');
-            return false;
-        }
-        if (statusCode != 200) {
-            alert("Something went wrong, please try again.");
-            return false;
-        }
-        return true;
-    }
-
-    
     function tryCreateCandidate(event: FormEvent): void {
-        const CREATE_CANDIDATE_API_URL = "https://testswitch-api-staging.herokuapp.com/candidates/create";
-        const formElement = document.querySelector("form");
+        const CREATE_CANDIDATE_API_URL = "https://localhost:5001/candidates/create";
+        const formData = new FormData();
+        formData.append('firstName', firstName);
+        formData.append('lastName', lastName);
+        formData.append('email', email);
+
         fetch(CREATE_CANDIDATE_API_URL, {
             method: 'POST',
-            body: new FormData(formElement)
+            body: formData
         })
-            .then(posted => posted ? router.push('/candidates'): {})
-            .catch(error => console.error(error));
-        
-        
-        // const apiStatusCode = await tryCreateApi(firstName, lastName, email);
-        // candidateIsValid(apiStatusCode) ? await router.push('/candidates') : {};
+            .then(response => {
+                if (response.status == 500) {
+                    alert("That email already exists in the system, please enter a different one.");
+                    throw new Error(response.statusText);
+                }
+                if (!response.ok) {
+                    alert("Something went wrong, please try again.");
+                    throw new Error(response.statusText);
+                }
+            })
+            .then(() => router.push('/candidates'))
+            .catch(error => {
+                console.log(error);
+                router.push('/create');
+            });
         event.preventDefault();
     }
 
     return (
-        <form onSubmit={tryCreateCandidate} id={'form'} className={scss.form}>
+        <form onSubmit={tryCreateCandidate} className={scss.form}>
             <label className={scss.label}>
                 First Name:
                 <br/>
