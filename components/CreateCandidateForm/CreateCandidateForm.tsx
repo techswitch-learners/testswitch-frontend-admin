@@ -59,7 +59,7 @@ export function CreateCandidateForm(): JSX.Element {
                 <input
                     className={scss.input}
                     type={"text"}
-                    name={lastName}
+                    name={"lastName"}
                     value={lastName}
                     onChange={event => setLastName(event.target.value)}
                     required={true}
