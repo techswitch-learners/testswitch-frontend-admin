@@ -4,20 +4,21 @@ import scss from "./CreateCandidate.module.scss";
 import {useRouter} from "next/router";
 
 interface CreateCandidateFormProps {
-    firstName: string;
-    lastName: string;
-    email: string;
-    setFirstName: (firstName: string) => void;
-    setLastName: (lastName: string) => void;
-    setEmail: (email: string) => void;
+   
 }
 
 export function CreateCandidateForm(props: CreateCandidateFormProps): JSX.Element {
 
-    const {firstName, lastName, email, setFirstName, setLastName, setEmail} = props;
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
     const router = useRouter();
 
     function candidateIsValid(statusCode: number): boolean {
+        if (statusCode == 403){
+            router.push('/login');
+            return false;
+        }
         if (statusCode != 200) {
             alert("Something went wrong, please try again.");
             return false;
@@ -26,7 +27,7 @@ export function CreateCandidateForm(props: CreateCandidateFormProps): JSX.Elemen
     }
 
     async function tryCreateCandidate(event: FormEvent): Promise<void> {
-        const apiStatusCode = await tryCreateApi(props.firstName, props.lastName, props.email);
+        const apiStatusCode = await tryCreateApi(firstName, lastName, email);
         candidateIsValid(apiStatusCode) ? await router.push('/candidates') : {};
         event.preventDefault();
     }
@@ -40,8 +41,8 @@ export function CreateCandidateForm(props: CreateCandidateFormProps): JSX.Elemen
                     className={scss.input}
                     type={"text"}
                     name={"firstName"}
-                    value={props.firstName}
-                    onChange={event => props.setFirstName(event.target.value)}
+                    value={firstName}
+                    onChange={event => setFirstName(event.target.value)}
                     required={true}
                 />
             </label>
@@ -52,8 +53,8 @@ export function CreateCandidateForm(props: CreateCandidateFormProps): JSX.Elemen
                     className={scss.input}
                     type={"text"}
                     name={lastName}
-                    value={props.lastName}
-                    onChange={event => props.setLastName(event.target.value)}
+                    value={lastName}
+                    onChange={event => setLastName(event.target.value)}
                     required={true}
                 />
             </label>
@@ -64,8 +65,8 @@ export function CreateCandidateForm(props: CreateCandidateFormProps): JSX.Elemen
                     className={scss.input}
                     type={"email"}
                     name={"email"}
-                    value={props.email}
-                    onChange={event => props.setEmail(event.target.value)}
+                    value={email}
+                    onChange={event => setEmail(event.target.value)}
                     required={true}
                 />
             </label>
