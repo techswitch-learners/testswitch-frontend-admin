@@ -6,17 +6,17 @@
 }
 
 .form{
-  @include form
+  @include form;
 }
 
 .input{
-  @include formInput
+  @include formInput;
 }
 
 .label{
   @include formLabel;
 }
 
-.login{
+.createButton{
   @include button;
 }
