@@ -1,0 +1,26 @@
+﻿@import '../../pageStyles/constants';
+
+.testTitle{
+  font-family: $softwireFont;
+  font-size: $contentFontSize;
+  color: $softwireWhite;
+}
+
+.textArea {
+  border: solid 2px $softwireYellow;
+  outline: none;
+  width: 290px;
+  height: 120px;
+}
+
+@media (min-width: 768px){
+  .textArea {
+    width: 700px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .textArea {
+    width: 900px;
+  }
+}

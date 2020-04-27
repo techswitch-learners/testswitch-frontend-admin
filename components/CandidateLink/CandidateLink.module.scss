@@ -4,12 +4,11 @@
   font-family: $softwireFont;
   font-size: $contentFontSize;
   color: $softwireWhite;
-  list-style: none;
-  display: block;
+  @include list;
 }
 
 .link{
-  text-decoration: none;
+  @include link;
 }
 
 .separator{
