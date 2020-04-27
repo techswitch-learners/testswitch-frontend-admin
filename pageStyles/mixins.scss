@@ -1,0 +1,42 @@
+﻿@import "constants";
+
+@mixin form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin subHeader{
+  text-align: center;
+  font-size: $desktopSubHeaderFontSize;
+  color: $softwireYellow;
+  font-family: $softwireFont;
+
+  @media (min-width: 768px) {
+    font-size: $desktopSubHeaderFontSize;
+  }
+}
+
+@mixin formInput{
+  color: $softwireBlack;
+  background-color: $softwireWhite;
+  border: solid 2px $softwireYellow;
+  font-family: $softwireFont;
+}
+
+@mixin formLabel{
+  color: $softwireYellow;
+  font-size: $contentFontSize;
+  font-family: $softwireFont;
+  margin-top: 10px;
+}
+
+@mixin button{
+  background-color: $softwireYellow;
+  border: none;
+  padding: 10px 20px;
+  font-size: $buttonFontSize;
+  font-family: $softwireFont;
+  margin-top: 10px;
+  font-weight: bold;
+}

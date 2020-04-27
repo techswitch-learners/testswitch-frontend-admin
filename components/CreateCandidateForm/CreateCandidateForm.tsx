@@ -18,11 +18,6 @@ export function CreateCandidateForm(props: CreateCandidateFormProps): JSX.Elemen
     const router = useRouter();
 
     function candidateIsValid(statusCode: number): boolean {
-
-        if (statusCode == 403) {
-            alert("Those details are not in our system! Please try again");
-            return false;
-        }
         if (statusCode != 200) {
             alert("Something went wrong, please try again.");
             return false;

@@ -1,37 +1,22 @@
 ﻿@import '../../pageStyles/constants';
+@import '../../pageStyles/mixins';
 
 .subHeader{
-  text-align: center;
-  font-size: $desktopSubHeaderFontSize;
-  color: $softwireYellow;
-  font-family: $softwireFont;
+  @include subHeader;
 }
 
 .form{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include form;
 }
 
 .input{
-  color: $softwireBlack;
-  background-color: $softwireWhite;
-  border: solid 2px $softwireYellow;
-  font-family: $softwireFont;
+  @include formInput;
 }
 
 .label{
-  color: $softwireYellow;
-  font-size: $contentFontSize;
-  font-family: $softwireFont;
-  margin-top: 10px;
+  @include formLabel;
 }
 
 .createButton{
-  background-color: $softwireYellow;
-  border: none;
-  padding: 10px 20px;
-  font-size: $buttonFontSize;
-  font-family: $softwireFont;
-  margin-top: 10px;
+  @include button;
 }
