@@ -2,6 +2,7 @@
 import React, {FormEvent, useState} from "react";
 import scss from "./CreateCandidate.module.scss";
 import {useRouter} from "next/router";
+import {API_ROUTE} from "next/dist/lib/constants";
 
 interface CreateCandidateFormProps {
    
@@ -26,14 +27,25 @@ export function CreateCandidateForm(props: CreateCandidateFormProps): JSX.Elemen
         return true;
     }
 
-    async function tryCreateCandidate(event: FormEvent): Promise<void> {
-        const apiStatusCode = await tryCreateApi(firstName, lastName, email);
-        candidateIsValid(apiStatusCode) ? await router.push('/candidates') : {};
+    
+    function tryCreateCandidate(event: FormEvent): void {
+        const CREATE_CANDIDATE_API_URL = "https://testswitch-api-staging.herokuapp.com/candidates/create";
+        const formElement = document.querySelector("form");
+        fetch(CREATE_CANDIDATE_API_URL, {
+            method: 'POST',
+            body: new FormData(formElement)
+        })
+            .then(posted => posted ? router.push('/candidates'): {})
+            .catch(error => console.error(error));
+        
+        
+        // const apiStatusCode = await tryCreateApi(firstName, lastName, email);
+        // candidateIsValid(apiStatusCode) ? await router.push('/candidates') : {};
         event.preventDefault();
     }
 
     return (
-        <form onSubmit={tryCreateCandidate} className={scss.form}>
+        <form onSubmit={tryCreateCandidate} id={'form'} className={scss.form}>
             <label className={scss.label}>
                 First Name:
                 <br/>
