@@ -1,0 +1,46 @@
+﻿@import 'pageStyles/constants';
+
+.link {
+  margin: unset;
+}
+
+.desktopButton {
+  background-color: $softwireYellow;
+  border: none;
+  padding: 5px 15px;
+  font-size: $buttonFontSize;
+  font-family: $softwireFont;
+  font-weight: bold;
+  margin-top: 10px;
+  position: fixed;
+  display: none;
+  
+  :hover{
+    background-color: black;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+    
+  @media (min-width: 768px) {
+    right: 10px;
+    top: 265px;
+    display: block;
+  }
+}
+
+.mobileButton {
+  background-color: $softwireYellow;
+  padding: 1px 10px 0 9px;
+  margin: 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 25px;
+  font-family: $softwireFont;
+  font-weight: bold;
+  position: fixed;
+  right: 10px;
+  
+  @media (min-width: 768px){
+    display: none;
+  }
+}
