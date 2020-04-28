@@ -1,14 +1,17 @@
 ﻿import React from "react";
-import {NextPage} from "next";
+import {GetServerSideProps, NextPage} from "next";
 import textStyle from "../pageStyles/text-classes.module.scss";
 import scss from "../pageStyles/candidates.module.scss";
 import Layout from "../components/Layout/layout";
 import {CandidateList} from "../components/CandidateList/CandidateList";
 import Link from "next/link";
-import {getCandidates} from "../api/candidatesApiClient";
+import {Candidate, getCandidates, ListResponse} from "../api/candidatesApiClient";
 
-const Candidates: NextPage = () => {
-
+interface CandidatesProps {
+    fetchCandidates:ListResponse<Candidate>;
+}
+const Candidates: NextPage<CandidatesProps> = ({fetchCandidates}) => {
+ 
     return (
         <Layout>
             <h1 className={textStyle.pageHeader}>Candidate Manager</h1>
@@ -17,9 +20,18 @@ const Candidates: NextPage = () => {
                 <Link href={"/create"}><a className={scss.createButton}>+<span className={scss.desktopText}>Create Candidate</span></a></Link>
             </div>
             <hr className={textStyle.lineBreak}/>
-            <CandidateList fetchCandidates={getCandidates} />
+            <CandidateList fetchCandidates={fetchCandidates}/>
         </Layout>
     );
+};
+export const getServerSideProps: GetServerSideProps = async context => {
+    const fetchCandidates = getCandidates();
+   
+    return {
+        props: {
+            fetchCandidates: await fetchCandidates,            
+        }
+    }
 };
 
 export default Candidates;

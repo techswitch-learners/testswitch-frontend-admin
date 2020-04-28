@@ -1,4 +1,5 @@
-﻿export interface ListResponse<T> {
+﻿import fetch from "node-fetch";
+export interface ListResponse<T> {
     items: T[];
     totalNumberOfItems: number;
     page: number;
@@ -13,8 +14,9 @@ export interface Candidate{
 }
 
 export async function getCandidates(): Promise<ListResponse<Candidate>> {
-    const response = await fetch(`https://testswitch-api-staging.herokuapp.com/candidates`);    
-    if(response.status==200){
+    const apiURL="https://testswitch-api-staging.herokuapp.com";
+    const response = await fetch(`${apiURL}/candidates`);    
+    if(response.ok){
         return await response.json();
     }
     else
