@@ -1,27 +1,18 @@
-﻿import React from "react";
+﻿import React, {useEffect, useState} from "react";
 import scss from './CandidateList.module.scss';
-import {getCandidates} from "../../api/candidatesApiClient";
+import {Candidate, getCandidates, ListResponse} from "../../api/candidatesApiClient";
 import {CandidateLink} from "../CandidateLink/CandidateLink";
 
+interface CandidatesListProps {
+    fetchCandidates: ListResponse<Candidate>;
+}
 
-export function CandidateList(): JSX.Element {
-
-    //TODO: use getCandidates function to get actual data
-    
-    type Candidate = {
-        name: string;
-        id: number;
-    }
-    
-    const candidates: Candidate[] = [
-        {name: "Michael Walker", id: 1}, 
-        {name: "Stephen Jackson", id: 2},
-        ];
-    
+export function CandidateList(props: CandidatesListProps): JSX.Element {
+    const candidates=props.fetchCandidates.items;
     return (
         <ul className={scss.list}>
             {
-                candidates.map((candidate, index) => <CandidateLink key={index} name={candidate.name} id={candidate.id}/>)
+                candidates.map((candidate, index) => <CandidateLink key={index} name={`${candidate.firstName} ${candidate.lastName}`} id={candidate.id}/>)
             }
         </ul>
     )
