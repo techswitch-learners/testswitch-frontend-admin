@@ -11,7 +11,7 @@ export function CreateCandidateForm(): JSX.Element {
     const router = useRouter();
 
     function tryCreateCandidate(event: FormEvent): void {
-        const CREATE_CANDIDATE_API_URL = process.env.APIURL + "/candidates/create";
+        const CREATE_CANDIDATE_API_URL = process.env.API_URL + "/candidates/create";
         const formData = new FormData();
         formData.append('firstName', firstName);
         formData.append('lastName', lastName);

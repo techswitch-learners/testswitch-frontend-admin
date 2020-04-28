@@ -5,7 +5,7 @@ module.exports = withSass({
 
 module.exports = () => {
     const env = {
-        APIURL: process.env.SETAPIURL,
+        API_URL: process.env.API_URL,
     };
     return {
         env,
