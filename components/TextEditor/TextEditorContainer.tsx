@@ -1,5 +1,5 @@
 ﻿import React from "react";
-import Editor from "react-monaco-editor";
+import Editor from "@monaco-editor/react";
 import {TextEditorSettings} from "./TextEditorSettings";
 import {SupportedLanguages} from "../../Models/SupportedLanguages";
 
@@ -14,16 +14,19 @@ interface TextEditorContainerProps {
 
 export function TextEditorContainer(props: TextEditorContainerProps): JSX.Element {
     return (
-       <div>
-           <Editor
-           theme={props.theme}
-           height={props.height}
-           width={props.width}
-           language={props.language}
-           value={props.defaultText}
-           options={TextEditorSettings}
-           />
-       </div>
+        <section>
+            <div>
+                <Editor
+                    theme={props.theme}
+                    height={props.height}
+                    width={props.width}
+                    language={props.language}
+                    value={props.defaultText}
+                    options={TextEditorSettings}
+                />
+            </div>
+        </section>
+      
    )
 }
 

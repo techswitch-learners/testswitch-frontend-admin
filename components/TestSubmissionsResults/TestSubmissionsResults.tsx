@@ -7,18 +7,14 @@ interface TestSubmissionsResultsProps {
 }
 
 export function TestSubmissionsResults(props: TestSubmissionsResultsProps): JSX.Element {
-    
     return (
         <li>
             <h2 className={textStyles.testTitle}>{props.test}</h2>
-            {/*<textarea className={textStyles.textArea}>*/}
-            {/*    Placeholder for Test Results*/}
-            {/*</textarea>*/}
             <TextEditorContainer 
-                height={"90"} 
-                width={"90"} 
+                height={"70vh"} 
+                width={"80vw"} 
                 language={'javascript'}
-                defaultText={"defaultText"} 
+                defaultText={"Candidates Test Answers"} 
                 theme={"dark"}
             />
         </li>

@@ -47,6 +47,7 @@
     }
   },
   "dependencies": {
+    "@monaco-editor/react": "^3.3.0",
     "@zeit/next-sass": "^1.0.1",
     "monaco-editor-webpack-plugin": "^1.9.0",
     "next": "^9.3.5",
