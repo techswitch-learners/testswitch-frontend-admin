@@ -6,7 +6,6 @@ import {SupportedLanguages} from "../../Models/SupportedLanguages";
 
 
 interface TextEditorContainerProps {
-    theme?: string;
     height: string;
     width: string;
     defaultText: string;
@@ -15,17 +14,15 @@ interface TextEditorContainerProps {
 
 export function TextEditorContainer(props: TextEditorContainerProps): JSX.Element {
     return (
-        <section>
-            <div className={scss.textEditorBox}>
+        <section className={scss.textEditorBox}>
                 <Editor
-                    theme={props.theme}
+                    theme="dark"
                     height={props.height}
                     width={props.width}
-                    language={props.language}
+                    language="javascript"
                     value={props.defaultText}
                     options={TextEditorSettings}
                 />
-            </div>
         </section>
       
    )
