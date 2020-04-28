@@ -49,13 +49,11 @@
   "dependencies": {
     "@monaco-editor/react": "^3.3.0",
     "@zeit/next-sass": "^1.0.1",
-    "monaco-editor-webpack-plugin": "^1.9.0",
     "next": "^9.3.5",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-monaco-editor": "^0.36.0",
-    "webfonts-loader": "^5.2.2"
+    "monaco-editor": "^0.20.0"
   },
+  
   "devDependencies": {
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.2",
@@ -74,6 +72,5 @@
     "node-sass": "^4.13.1",
     "ts-jest": "^25.3.1",
     "typescript": "^3.8.3",
-    "monaco-editor": "^0.20.0"
   }
 }
