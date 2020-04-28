@@ -10,12 +10,12 @@ export function TestSubmissionsResults(props: TestSubmissionsResultsProps): JSX.
     return (
         <li>
             <h2 className={textStyles.testTitle}>{props.test}</h2>
-            <TextEditorContainer 
+            <TextEditorContainer
+                theme={"dark"}
                 height={"70vh"} 
                 width={"80vw"} 
                 language={'javascript'}
-                defaultText={"Candidates Test Answers"} 
-                theme={"dark"}
+                defaultText={"Candidates Test Answers"}
             />
         </li>
     );

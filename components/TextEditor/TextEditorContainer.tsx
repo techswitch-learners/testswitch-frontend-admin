@@ -1,5 +1,6 @@
 ﻿import React from "react";
 import Editor from "@monaco-editor/react";
+import scss from "./TextEditorContainer.module.scss";
 import {TextEditorSettings} from "./TextEditorSettings";
 import {SupportedLanguages} from "../../Models/SupportedLanguages";
 
@@ -15,7 +16,7 @@ interface TextEditorContainerProps {
 export function TextEditorContainer(props: TextEditorContainerProps): JSX.Element {
     return (
         <section>
-            <div>
+            <div className={scss.textEditorBox}>
                 <Editor
                     theme={props.theme}
                     height={props.height}
