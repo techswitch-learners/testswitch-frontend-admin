@@ -11,7 +11,7 @@ export function CreateCandidateForm(): JSX.Element {
     const router = useRouter();
 
     function tryCreateCandidate(event: FormEvent): void {
-        const CREATE_CANDIDATE_API_URL = "https://localhost:5001/candidates/create";
+        const CREATE_CANDIDATE_API_URL = process.env.API_URL + "/candidates/create";
         const formData = new FormData();
         formData.append('firstName', firstName);
         formData.append('lastName', lastName);
@@ -40,44 +40,44 @@ export function CreateCandidateForm(): JSX.Element {
     }
 
     return (
-        <form onSubmit={tryCreateCandidate} className={scss.form}>
-            <label className={scss.label}>
-                First Name:
-                <br/>
-                <input
-                    className={scss.input}
-                    type={"text"}
-                    name={"firstName"}
-                    value={firstName}
-                    onChange={event => setFirstName(event.target.value)}
-                    required={true}
-                />
-            </label>
-            <label className={scss.label}>
-                Last Name:
-                <br/>
-                <input
-                    className={scss.input}
-                    type={"text"}
-                    name={"lastName"}
-                    value={lastName}
-                    onChange={event => setLastName(event.target.value)}
-                    required={true}
-                />
-            </label>
-            <label className={scss.label}>
-                Email Address:
-                <br/>
-                <input
-                    className={scss.input}
-                    type={"email"}
-                    name={"email"}
-                    value={email}
-                    onChange={event => setEmail(event.target.value)}
-                    required={true}
-                />
-            </label>
-            <button className={scss.createButton} type="submit">Create</button>
-        </form>
+            <form onSubmit={tryCreateCandidate} className={scss.form}>
+                <label className={scss.label}>
+                    First Name:
+                    <br/>
+                    <input
+                        className={scss.input}
+                        type={"text"}
+                        name={"firstName"}
+                        value={firstName}
+                        onChange={event => setFirstName(event.target.value)}
+                        required={true}
+                    />
+                </label>
+                <label className={scss.label}>
+                    Last Name:
+                    <br/>
+                    <input
+                        className={scss.input}
+                        type={"text"}
+                        name={"lastName"}
+                        value={lastName}
+                        onChange={event => setLastName(event.target.value)}
+                        required={true}
+                    />
+                </label>
+                <label className={scss.label}>
+                    Email Address:
+                    <br/>
+                    <input
+                        className={scss.input}
+                        type={"email"}
+                        name={"email"}
+                        value={email}
+                        onChange={event => setEmail(event.target.value)}
+                        required={true}
+                    />
+                </label>
+                <button className={scss.createButton} type="submit">Create</button>
+            </form>
     );
 }
