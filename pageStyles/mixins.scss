@@ -12,7 +12,7 @@
   color: $softwireYellow;
   font-family: $softwireFont;
 
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     font-size: $desktopSubHeaderFontSize;
   }
 }
@@ -22,6 +22,15 @@
   background-color: $softwireWhite;
   border: solid 2px $softwireYellow;
   font-family: $softwireFont;
+  height: 20px;
+  width: 220px;
+  margin-top: 5px;
+
+  @media (min-width: 769px) {
+    margin-top: 10px;
+    height: 25px;
+    width: 250px
+  }
 }
 
 @mixin formLabel{
@@ -37,6 +46,6 @@
   padding: 10px 20px;
   font-size: $buttonFontSize;
   font-family: $softwireFont;
-  margin-top: 10px;
+  margin-top: 15px;
   font-weight: bold;
 }
