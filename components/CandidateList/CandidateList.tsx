@@ -4,11 +4,11 @@ import {Candidate, getCandidates, ListResponse} from "../../api/candidatesApiCli
 import {CandidateLink} from "../CandidateLink/CandidateLink";
 
 interface CandidatesListProps {
-    fetchCandidates: ListResponse<Candidate>;
+    candidatesList: ListResponse<Candidate>;
 }
 
 export function CandidateList(props: CandidatesListProps): JSX.Element {
-    const candidates=props.fetchCandidates.items;
+    const candidates=props.candidatesList.items;
     return (
         <ul className={scss.list}>
             {

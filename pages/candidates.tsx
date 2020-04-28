@@ -20,7 +20,7 @@ const Candidates: NextPage<CandidatesProps> = ({fetchCandidates}) => {
                 <Link href={"/create"}><a className={scss.createButton}>+<span className={scss.desktopText}>Create Candidate</span></a></Link>
             </div>
             <hr className={textStyle.lineBreak}/>
-            <CandidateList fetchCandidates={fetchCandidates}/>
+            <CandidateList candidatesList={fetchCandidates}/>
         </Layout>
     );
 };
