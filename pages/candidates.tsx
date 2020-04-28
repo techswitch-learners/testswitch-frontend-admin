@@ -8,7 +8,7 @@ import Link from "next/link";
 import {Candidate, getCandidates, ListResponse} from "../api/candidatesApiClient";
 
 interface CandidatesProps {
-    fetchCandidates:ListResponse<Candidate>;
+    fetchCandidates: ListResponse<Candidate>;
 }
 const Candidates: NextPage<CandidatesProps> = ({fetchCandidates}) => {
 
