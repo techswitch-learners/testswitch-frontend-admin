@@ -14,7 +14,7 @@ export interface Candidate{
 }
 
 export async function getCandidates(): Promise<ListResponse<Candidate>> {
-    const apiURL=`https://testswitch-api-staging.herokuapp.com/`;
+    const apiURL=`https://testswitch-api-staging.herokuapp.com`;
     const response = await fetch(`${apiURL}/candidates`);
     if(response.ok){
         return await response.json();
@@ -24,8 +24,9 @@ export async function getCandidates(): Promise<ListResponse<Candidate>> {
         throw Error;
     }
 }
+
 export async function getCandidateById(id:number) {
-    const apiURL=`https://testswitch-api-staging.herokuapp.com/`;
+    const apiURL=`https://testswitch-api-staging.herokuapp.com`;
     const response = await fetch(`${apiURL}/candidates/${id}`);
     if(response.ok){
         const data =  await response.json();

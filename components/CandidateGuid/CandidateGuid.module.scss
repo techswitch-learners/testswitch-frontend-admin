@@ -1,0 +1,18 @@
+﻿@import "../../pageStyles/constants";
+@import "../../pageStyles/mixins";
+
+.guidContainer {
+  max-width: 90vw;
+}
+
+.guidBox {
+  @include list;
+  text-align: center;
+}
+
+.guidLi {
+  color: $softwireBlack;
+  border: solid 2px $softwireYellow;
+  background-color: $softwireWhite;
+  padding: 3px;
+}
