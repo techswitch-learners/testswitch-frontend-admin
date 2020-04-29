@@ -9,7 +9,7 @@ const { publicRuntimeConfig } = getConfig();
 
 const Home: NextPage = () => 
     <Layout>
-        <h1 data-testid="page-render-test" className={scss.example}>Hello {publicRuntimeConfig.API_URL}</h1>
+        <h1 data-testid="page-render-test" className={scss.example}>Hello Admin Site</h1>
     </Layout>;
 
 export default Home;
