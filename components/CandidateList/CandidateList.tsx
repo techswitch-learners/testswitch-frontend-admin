@@ -3,6 +3,7 @@ import scss from "../../pageStyles/candidates.module.scss";
 import {Candidate, getCandidates, ListResponse} from "../../api/candidatesApiClient";
 import {CandidateLink} from "../CandidateLink/CandidateLink";
 import Router , {useRouter}  from 'next/router';
+import Link from "next/link";
 
 interface CandidatesListProps {
     candidatesList: ListResponse<Candidate>;
@@ -11,14 +12,6 @@ interface CandidatesListProps {
 export function CandidateList(props: CandidatesListProps): JSX.Element {
     const candidates=props.candidatesList.items;
 
-    function decrementPage(){
-        Router.push(`/candidates?page=${props.candidatesList.page - 1}&pageSize=10`);
-    }
-
-    function incrementPage(){
-        Router.push(`/candidates?page=${props.candidatesList.page + 1}&pageSize=10`);
-    }
-
     return (
         <div>
             <ul className={scss.list}>
@@ -26,9 +19,9 @@ export function CandidateList(props: CandidatesListProps): JSX.Element {
                     candidates.map((candidate, index) => <CandidateLink key={index} name={`${candidate.firstName} ${candidate.lastName}`} id={candidate.id}/>)
                 }
             </ul>
-            <div className={scss.narBar}>
-                {props.candidatesList.previousPage && <button type="button" className={scss.navButton} onClick={decrementPage}>Previous</button>}
-                {props.candidatesList.nextPage && <button type="button" className={scss.navButton} onClick={incrementPage}>Next</button>}
+            <div className={scss.navBar}>
+                {props.candidatesList.previousPage && <Link  href={props.candidatesList.previousPage}><a className={scss.navButton}>Previous</a></Link>}
+                {props.candidatesList.nextPage && <Link href={props.candidatesList.nextPage}><a className={scss.navButton}>Next</a></Link>}
             </div>
         </div>
 
