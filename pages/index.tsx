@@ -2,10 +2,6 @@
 import {NextPage} from "next";
 import scss from "../pageStyles/index.module.scss"
 import Layout from "../components/Layout/layout";
-import getConfig from 'next/config';
-
-
-const { publicRuntimeConfig } = getConfig();
 
 const Home: NextPage = () => 
     <Layout>
