@@ -13,9 +13,10 @@ export interface Candidate{
     guid: string;
 }
 
-export async function getCandidates(): Promise<ListResponse<Candidate>> {
+export async function getCandidates(page: number, pageSize: number): Promise<ListResponse<Candidate>> {
     const apiURL=process.env.API_URL;
-    const response = await fetch(`${apiURL}/candidates`);
+    const response = await fetch(`${apiURL}/candidates?page=${page}&pageSize=${pageSize}`);
+
     if(response.ok){
         return await response.json();
     }
@@ -24,4 +25,3 @@ export async function getCandidates(): Promise<ListResponse<Candidate>> {
         throw Error;
     }
 }
-
