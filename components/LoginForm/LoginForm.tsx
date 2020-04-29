@@ -2,6 +2,10 @@
 import React, {FormEvent, useState} from "react";
 import scss from "./LoginForm.module.scss";
 import {useRouter} from "next/router";
+import getConfig from 'next/config';
+
+
+
 
 interface LoginFormProps {
     userId: string;
@@ -12,6 +16,7 @@ interface LoginFormProps {
 
 export function LoginForm(props: LoginFormProps): JSX.Element {
 
+    const { publicRuntimeConfig } = getConfig();
     const {userId, password, setUserId, setPassword} = props;
     const router = useRouter();
 
@@ -58,7 +63,7 @@ export function LoginForm(props: LoginFormProps): JSX.Element {
                     required={true}
                 />
             </label>
-            <button className={scss.login} type="submit">Log In</button>
+            <button className={scss.login} type="submit">{publicRuntimeConfig.API_URL}</button>
         </form>
     );
 }
