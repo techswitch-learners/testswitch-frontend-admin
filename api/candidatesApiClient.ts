@@ -1,4 +1,6 @@
 ﻿import fetch from "node-fetch";
+import getConfig from 'next/config';
+
 export interface ListResponse<T> {
     items: T[];
     totalNumberOfItems: number;
@@ -14,7 +16,8 @@ export interface Candidate{
 }
 
 export async function getCandidates(page: number, pageSize: number): Promise<ListResponse<Candidate>> {
-    const apiURL=process.env.API_URL;
+    const { publicRuntimeConfig } = getConfig();
+    const apiURL = publicRuntimeConfig.API_URL;
     const response = await fetch(`${apiURL}/candidates?page=${page}&pageSize=${pageSize}`);
 
     if(response.ok){
