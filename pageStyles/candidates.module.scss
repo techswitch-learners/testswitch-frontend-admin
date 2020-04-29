@@ -20,18 +20,46 @@
   position: absolute;
   top: 0;
   right: 0;
-  
-  
+
+
   :hover{
     text-decoration: underline;
     cursor: pointer;
   }
-    
+
   @media (min-width: 769px) {
     font-size: 20px;
     padding: 5px 15px;
     margin-top: 10px;
   }
+}
+
+.navButton {
+  background-color: $softwireYellow;
+  text-decoration: none;
+  color: black;
+  border: none;
+  padding: 6px 12px;
+  font-size: 15px;
+  font-weight: bold;
+  margin-right: 10px;
+  alignment: center;
+
+  :hover{
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  @media (min-width: 769px) {
+    font-size: 20px;
+    padding: 5px 15px;
+  }
+}
+
+.narBar{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .desktopText{
@@ -40,4 +68,9 @@
     display: unset;
     padding-left: 7px;
   }
+}
+
+.list{
+  padding: 5px;
+  margin: 0px 10px;
 }

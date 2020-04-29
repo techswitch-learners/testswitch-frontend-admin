@@ -24,9 +24,10 @@ const Candidates: NextPage<CandidatesProps> = ({fetchCandidates}) => {
         </Layout>
     );
 };
-export const getServerSideProps: GetServerSideProps = async context => {
-    const fetchCandidates = getCandidates();
 
+export const getServerSideProps: GetServerSideProps = async context => {
+    const page=context.query.page?parseInt(context.query.page[0]):1;
+    const fetchCandidates = getCandidates(page,10);
     return {
         props: {
             fetchCandidates: await fetchCandidates,
