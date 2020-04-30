@@ -1,4 +1,6 @@
 ﻿import fetch from "node-fetch";
+import getConfig from 'next/config';
+
 export interface ListResponse<T> {
     items: T[];
     totalNumberOfItems: number;
@@ -13,9 +15,11 @@ export interface Candidate{
     guid: string;
 }
 
-export async function getCandidates(): Promise<ListResponse<Candidate>> {
-    const apiURL=`https://testswitch-api-staging.herokuapp.com`;
-    const response = await fetch(`${apiURL}/candidates`);
+export async function getCandidates(page: number, pageSize: number): Promise<ListResponse<Candidate>> {
+    const { publicRuntimeConfig } = getConfig();
+    const apiURL = publicRuntimeConfig.API_URL;
+    const response = await fetch(`${apiURL}/candidates?page=${page}&pageSize=${pageSize}`);
+
     if(response.ok){
         return await response.json();
     }
