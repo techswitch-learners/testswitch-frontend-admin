@@ -12,7 +12,7 @@ export function CandidateGuid(props: CandidateProps): JSX.Element {
     return (
         <div className={textStyles.guidContainer}>
             <ul className={textStyles.guidBox}>
-                {guid === "" ? (<li className={textStyles.guidLi}>A test url needs to be generated.</li>) : (
+                {guid === null ? (<li className={textStyles.guidLi}>A test url needs to be generated.</li>) : (
                     <li className={textStyles.guidLi}>{baseUrl}/{guid}</li>)}
             </ul>
         </div>

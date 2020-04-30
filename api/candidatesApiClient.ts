@@ -25,12 +25,12 @@ export async function getCandidates(): Promise<ListResponse<Candidate>> {
     }
 }
 
-export async function getCandidateById(cid:number):Promise<Candidate> {
+export async function getCandidateById(cid:any):Promise<Candidate> {
     const apiURL=`https://testswitch-api-staging.herokuapp.com`;
     const response = await fetch(`${apiURL}/candidates`);
     if(response.ok){
         const data =  await response.json();
-        const candidate = data.items.find(item=> item.id === cid);
+        const candidate = data.items.find(item=> item.id === parseInt(cid));
         return candidate;
     }
     else

@@ -1,34 +1,24 @@
 ﻿import React from "react";
 import textStyles from './CandidateLink.module.scss';
-import {useRouter} from "next/router";
+import Link from "next/link";
+
 
 
 interface CandidateLinkProps {
     name: string;
     id: number;
-    guid: string;
 }
 
 
 export function CandidateLink(props: CandidateLinkProps): JSX.Element {
-    const router = useRouter();
-    const ref: string = "/testsubmissions";
-    const clickHandler = () => {
-        router.push({
-            pathname: ref,
-            query: {
-                name: props.name,
-                token: props.guid,
-            }
-        })
-    };
+
+    const ref: string = "/testsubmissions/" + props.id;
+    
     return (
         <li className={textStyles.listItem}>
-            <a
-                onClick={clickHandler}
-            >
+            <Link href={ref}>
                 <p className={textStyles.link}>{props.name}</p>
-            </a>
+            </Link>
             <hr/>
         </li>
     )
