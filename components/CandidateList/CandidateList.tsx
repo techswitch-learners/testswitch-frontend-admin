@@ -12,7 +12,7 @@ export function CandidateList(props: CandidatesListProps): JSX.Element {
     return (
         <ul className={scss.list}>
             {
-                candidates.map((candidate, index) => <CandidateLink key={index} name={`${candidate.firstName} ${candidate.lastName}`} id={candidate.id}/>)
+                candidates.map((candidate, index) => <CandidateLink key={index} name={`${candidate.firstName} ${candidate.lastName}`} id={candidate.id} guid={candidate.guid}/>)
             }
         </ul>
     )
