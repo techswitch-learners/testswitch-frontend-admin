@@ -8,11 +8,16 @@ interface CandidatesListProps {
 }
 
 export function CandidateList(props: CandidatesListProps): JSX.Element {
-    const candidates=props.candidatesList.items;
+    const candidates = props.candidatesList.items;
     return (
         <ul className={scss.list}>
             {
-                candidates.map((candidate, index) => <CandidateLink key={index} name={`${candidate.firstName} ${candidate.lastName}`} id={candidate.id} guid={candidate.guid}/>)
+                candidates.map((candidate, index) => <CandidateLink
+                    key={index}
+                    name={`${candidate.firstName} ${candidate.lastName}`}
+                    id={candidate.id}
+                    guid={candidate.guid}
+                />)
             }
         </ul>
     )

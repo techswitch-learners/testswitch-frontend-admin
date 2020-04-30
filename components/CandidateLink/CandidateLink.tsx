@@ -15,10 +15,13 @@ export function CandidateLink(props: CandidateLinkProps): JSX.Element {
     const ref: string = "/testsubmissions";
     const clickHandler = () => {
         router.push({
-            pathname:ref,
-            query: {token:props.guid}
+            pathname: ref,
+            query: {
+                name: props.name,
+                token: props.guid,
+            }
         })
-    }
+    };
     return (
         <li className={textStyles.listItem}>
             <a

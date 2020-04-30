@@ -2,18 +2,19 @@
 import React from "react";
 
 interface CandidateProps {
-    guid: string,
+    guid: any,
 }
 
 
 export function CandidateGuid(props: CandidateProps): JSX.Element {
     const baseUrl: string = `https://testswitch-api-staging.herokuapp.com/sessions`;
-    const guid: string = props.guid;
+    const guid = props.guid;
     return (
         <div className={textStyles.guidContainer}>
-        <ul className={textStyles.guidBox}>
-            {guid===null?(<li className={textStyles.guidLi}>A test url needs to be generated.</li>):(<li className={textStyles.guidLi}>{baseUrl}/{guid}</li>)}
-        </ul>
+            <ul className={textStyles.guidBox}>
+                {guid === "" ? (<li className={textStyles.guidLi}>A test url needs to be generated.</li>) : (
+                    <li className={textStyles.guidLi}>{baseUrl}/{guid}</li>)}
+            </ul>
         </div>
     );
 }
