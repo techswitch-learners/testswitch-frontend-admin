@@ -1,14 +1,10 @@
-﻿﻿﻿
-import {stringify} from "querystring";
-import React from "react";
+﻿import React from "react";
 import {GetServerSideProps, NextPage} from "next";
 import textStyle from "../../pageStyles/text-classes.module.scss"
 import Layout from "../../components/Layout/layout";
 import {TestSubmissionsList} from "../../components/TestSubmissionsList/TestSubmissionsList";
 import {CandidateGuid} from "../../components/CandidateGuid/CandidateGuid";
 import {Candidate, getCandidateById} from "../../api/candidatesApiClient";
-
-﻿
 
 interface CandidateProps {
     candidate: Candidate;
