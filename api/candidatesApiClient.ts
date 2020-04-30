@@ -17,25 +17,24 @@ export interface Candidate {
 }
 
 export async function getCandidates(page: number, pageSize: number): Promise<ListResponse<Candidate>> {
-    const { publicRuntimeConfig } = getConfig();
+    const {publicRuntimeConfig} = getConfig();
     const apiURL = publicRuntimeConfig.API_URL;
 
-    if(response.ok){
+    if (response.ok) {
         return await response.json();
     } else {
         throw Error;
     }
 }
-export async function getCandidateById(cid:any):Promise<Candidate> {
-    const apiURL=`https://testswitch-api-staging.herokuapp.com`;
+
+export async function getCandidateById(cid: any): Promise<Candidate> {
+    const apiURL = `https://testswitch-api-staging.herokuapp.com`;
     const response = await fetch(`${apiURL}/candidates`);
-    if(response.ok){
-        const data =  await response.json();
-        const candidate = data.items.find(item=> item.id === parseInt(cid));
+    if (response.ok) {
+        const data = await response.json();
+        const candidate = data.items.find(item => item.id === parseInt(cid));
         return candidate;
-    }
-    else
-    {
+    } else {
         throw "there was an error"
     }
 }
