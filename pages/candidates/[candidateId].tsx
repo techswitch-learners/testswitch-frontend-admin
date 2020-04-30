@@ -10,7 +10,8 @@ interface CandidateProps {
     candidate: Candidate;
 }
 
-const TestSubmissions: NextPage<CandidateProps> = ({candidate}) => {
+//previously known as test submissions page, changed for proper Next JS routing
+const CandidateId: NextPage<CandidateProps> = ({candidate}) => {
     return (
         <Layout>
             <h1 className={textStyle.pageHeader}>Test Submissions</h1>
@@ -26,7 +27,7 @@ const TestSubmissions: NextPage<CandidateProps> = ({candidate}) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async context => {
-    const candidateId = context.query.testsubmissions as string;
+    const candidateId = context.query.candidateId as string;
     const candidateData = getCandidateById(parseInt(candidateId));
 
     return {
@@ -37,4 +38,4 @@ export const getServerSideProps: GetServerSideProps = async context => {
 };
 
 
-export default TestSubmissions;
+export default CandidateId;
