@@ -10,6 +10,7 @@ import {Candidate, getCandidates, ListResponse} from "../api/candidatesApiClient
 interface CandidatesProps {
     fetchCandidates: ListResponse<Candidate>;
 }
+
 const Candidates: NextPage<CandidatesProps> = ({fetchCandidates}) => {
 
     return (
@@ -26,11 +27,11 @@ const Candidates: NextPage<CandidatesProps> = ({fetchCandidates}) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async context => {
- 
-    const page=context.query.page?parseInt(context.query.page.toString()):1;
-    const pageSize=context.query.pageSize?parseInt(context.query.pageSize.toString()):10;
-   
-    const fetchCandidates = getCandidates(page,pageSize);
+
+    const page = context.query.page ? parseInt(context.query.page.toString()) : 1;
+    const pageSize = context.query.pageSize ? parseInt(context.query.pageSize.toString()) : 10;
+
+    const fetchCandidates = getCandidates(page, pageSize);
     return {
         props: {
             fetchCandidates: await fetchCandidates,
