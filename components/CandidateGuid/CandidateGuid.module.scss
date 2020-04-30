@@ -3,16 +3,15 @@
 
 .guidContainer {
   max-width: 90vw;
+  display: flex;
+  justify-content: center;
 }
 
-.guidBox {
-  @include list;
-  text-align: center;
-}
-
-.guidLi {
+.guidText {
+  margin: 10px;
   color: $softwireBlack;
   border: solid 2px $softwireYellow;
   background-color: $softwireWhite;
-  padding: 3px;
+  padding: 5px;
+  text-align: center;
 }

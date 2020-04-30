@@ -11,7 +11,7 @@ interface CandidateLinkProps {
 
 export function CandidateLink(props: CandidateLinkProps): JSX.Element {
 
-    const ref: string = "/testsubmissions/" + props.id;
+    const ref: string = "/candidates/" + props.id;
     
     return (
         <li className={textStyles.listItem}>

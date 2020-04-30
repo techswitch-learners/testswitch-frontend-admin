@@ -7,14 +7,12 @@ interface CandidateProps {
 
 
 export function CandidateGuid(props: CandidateProps): JSX.Element {
-    const baseUrl = `https://testswitch-api-staging.herokuapp.com/sessions`;
+    const baseUrl = `https://testswitch-candidate.herokuapp.com`;
     const guid = props.guid;
     return (
         <div className={textStyles.guidContainer}>
-            <ul className={textStyles.guidBox}>
-                {guid === null ? (<li className={textStyles.guidLi}>A test url needs to be generated.</li>) : (
-                    <li className={textStyles.guidLi}>{baseUrl}/{guid}</li>)}
-            </ul>
+            {guid === null ? (<p className={textStyles.guidText}>A test url needs to be generated.</p>) : (
+                <p className={textStyles.guidText}>{baseUrl}?token=${guid}</p>)}
         </div>
     );
 }

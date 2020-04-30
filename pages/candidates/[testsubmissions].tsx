@@ -26,9 +26,8 @@ const TestSubmissions: NextPage<CandidateProps> = ({candidate}) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async context => {
-    const candidateId = context.query.testsubmissions;
-    console.log(candidateId);
-    const candidateData = getCandidateById(candidateId);
+    const candidateId = context.query.testsubmissions as string;
+    const candidateData = getCandidateById(parseInt(candidateId));
 
     return {
         props: {
