@@ -3,7 +3,6 @@ import textStyles from './CandidateLink.module.scss';
 import Link from "next/link";
 
 
-
 interface CandidateLinkProps {
     name: string;
     id: number;

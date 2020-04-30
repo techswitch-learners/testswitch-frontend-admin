@@ -11,7 +11,7 @@ interface LoginFormProps {
 }
 
 export function LoginForm(props: LoginFormProps): JSX.Element {
-
+    
     const {userId, password, setUserId, setPassword} = props;
     const router = useRouter();
 
@@ -58,7 +58,7 @@ export function LoginForm(props: LoginFormProps): JSX.Element {
                     required={true}
                 />
             </label>
-            <button className={scss.login} type="submit">Log In</button>
+            <button className={scss.login} type="submit">Log in</button>
         </form>
     );
 }

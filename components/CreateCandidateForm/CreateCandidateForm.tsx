@@ -1,17 +1,19 @@
 ﻿import React, {FormEvent, useState} from "react";
 import scss from "./CreateCandidate.module.scss";
 import {useRouter} from "next/router";
+import getConfig from "next/config";
 
 
 export function CreateCandidateForm(): JSX.Element {
 
+    const { publicRuntimeConfig } = getConfig();
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const router = useRouter();
 
     function tryCreateCandidate(event: FormEvent): void {
-        const CREATE_CANDIDATE_API_URL = process.env.API_URL + "/candidates/create";
+        const CREATE_CANDIDATE_API_URL = publicRuntimeConfig.API_URL + "/candidates/create";
         const formData = new FormData();
         formData.append('firstName', firstName);
         formData.append('lastName', lastName);
