@@ -78,6 +78,7 @@ export function LoginForm(): JSX.Element {
                     required={true}
                 />
             </label>
+            <button className={scss.login} type="submit">Log in</button>
         </form>
     );
 } 
