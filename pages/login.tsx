@@ -15,3 +15,5 @@ const LoginPage: NextPage = () => {
         </Layout>
     );
 };
+
+export default LoginPage;
