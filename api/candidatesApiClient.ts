@@ -19,8 +19,7 @@ export interface Candidate {
 
 export async function getCandidates(page: number, pageSize: number): Promise<ListResponse<Candidate>> {
     const {publicRuntimeConfig} = getConfig();
-    /*const apiURL = publicRuntimeConfig.API_URL;*/
-    const apiURL = `https://testswitch-api-staging.herokuapp.com`;
+    const apiURL = publicRuntimeConfig.API_URL;
     const response = await fetch(`${apiURL}/candidates?page=${page}&pageSize=${pageSize}`);
 
     if (response.ok) {
@@ -32,8 +31,7 @@ export async function getCandidates(page: number, pageSize: number): Promise<Lis
 
 export async function getCandidateById(cid: number): Promise<Candidate> {
     const {publicRuntimeConfig} = getConfig();
-    /*const apiURL = publicRuntimeConfig.API_URL;*/
-    const apiURL = `https://testswitch-api-staging.herokuapp.com`;
+    const apiURL = publicRuntimeConfig.API_URL;
     const response = await fetch(`${apiURL}/candidates/${cid}`);
     if (response.ok) {
         const candidate = await response.json();
