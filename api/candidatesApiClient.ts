@@ -14,7 +14,13 @@ export interface Candidate {
     firstName: string;
     lastName: string;
     guid: string;
-    testSubmissions: string [];
+    testSubmissions: Test [];
+}
+
+interface Test {
+    testId: number;
+    testResult: string;
+    testAnswer: string;
 }
 
 export async function getCandidates(page: number, pageSize: number): Promise<ListResponse<Candidate>> {
