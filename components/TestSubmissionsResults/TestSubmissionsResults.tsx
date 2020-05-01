@@ -1,5 +1,6 @@
 ﻿import React from "react";
 import textStyles from './TestSubmissionsResults.module.scss';
+import TextEditorContainer from "../TextEditor/TextEditorContainer";
 
 interface TestSubmissionsResultsProps {
     testId: string;
@@ -9,16 +10,10 @@ interface TestSubmissionsResultsProps {
 
 
 export function TestSubmissionsResults(props: TestSubmissionsResultsProps): JSX.Element {
-
-    //TODO: how will results appear to admin? for now put textarea as placeholder
     return (
         <li>
             <h2 className={textStyles.testTitle}>Test {props.testId}</h2>
-            <textarea
-                className={textStyles.textArea}
-                value= {props.testAnswer}
-                readOnly={true}>
-            </textarea>
+                <TextEditorContainer/>
             <p className={textStyles.testTitle}>{props.testResult}</p>
         </li>
     );

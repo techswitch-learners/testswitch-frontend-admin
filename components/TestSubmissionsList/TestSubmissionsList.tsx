@@ -5,7 +5,6 @@ import {TestSubmissionsResults} from "../TestSubmissionsResults/TestSubmissionsR
 interface TestSubmissionsListProps {
     tests: string[];
 }
-
 export function TestSubmissionsList(props: TestSubmissionsListProps): JSX.Element {
 
     const testHolder: string [] = ["Test 1", "Test 2", "Test 3"];

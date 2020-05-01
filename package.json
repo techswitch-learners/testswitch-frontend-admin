@@ -47,11 +47,12 @@
     }
   },
   "dependencies": {
-    "@types/node-fetch": "^2.5.7",
+    "@monaco-editor/react": "^3.3.0",
     "@zeit/next-sass": "^1.0.1",
     "next": "^9.3.5",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "monaco-editor": "^0.20.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.5.0",
