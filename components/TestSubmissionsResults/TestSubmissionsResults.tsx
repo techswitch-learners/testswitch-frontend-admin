@@ -3,14 +3,18 @@ import textStyles from './TestSubmissionsResults.module.scss';
 import TextEditorContainer from "../TextEditor/TextEditorContainer";
 
 interface TestSubmissionsResultsProps {
-    test: string;
+    testId: number;
+    testResult: string;
+    testAnswer: string;
 }
+
 
 export function TestSubmissionsResults(props: TestSubmissionsResultsProps): JSX.Element {
     return (
         <li>
-            <h2 className={textStyles.testTitle}>{props.test}</h2>
-                <TextEditorContainer/>
+            <h2 className={textStyles.testTitle}>Test {props.testId}</h2>
+            <TextEditorContainer testAnswer={props.testAnswer}/>
+            <p className={textStyles.testTitle}>{props.testResult}</p>
         </li>
     );
 }

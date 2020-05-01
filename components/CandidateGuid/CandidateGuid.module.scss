@@ -1,0 +1,17 @@
+﻿@import "../../pageStyles/constants";
+@import "../../pageStyles/mixins";
+
+.guidContainer {
+  max-width: 90vw;
+  display: flex;
+  justify-content: center;
+}
+
+.guidText {
+  margin: 10px;
+  color: $softwireBlack;
+  border: solid 2px $softwireYellow;
+  background-color: $softwireWhite;
+  padding: 5px;
+  text-align: center;
+}

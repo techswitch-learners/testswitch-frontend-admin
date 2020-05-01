@@ -2,16 +2,31 @@
 import scss from './TestSubmissionsList.module.scss';
 import {TestSubmissionsResults} from "../TestSubmissionsResults/TestSubmissionsResults";
 
-export function TestSubmissionsList(): JSX.Element {
+interface Test {
+    testId: number;
+    testResult: string;
+    testAnswer: string;
+}
 
-    //TODO: getTestSubmissions result from API
-    
-    const tests: string [] = ["Test 1", "Test 2", "Test 3"];
-    
+interface TestSubmissionsListProps {
+    tests: Test[];
+}
+
+export function TestSubmissionsList(props: TestSubmissionsListProps): JSX.Element {
+
     return (
         <ul className={scss.list}>
             {
-                tests.map(test => <TestSubmissionsResults key={tests.indexOf(test)} test={test}/>)
+                props.tests.map(test => {
+                    return (
+                        <TestSubmissionsResults
+                            key={props.tests.indexOf(test)}
+                            testId={test.testId}
+                            testResult={test.testResult}
+                            testAnswer={test.testAnswer}
+                        />
+                    )
+                })
             }
         </ul>
     )
