@@ -13,7 +13,7 @@ export function TestSubmissionsResults(props: TestSubmissionsResultsProps): JSX.
     return (
         <li>
             <h2 className={textStyles.testTitle}>Test {props.testId}</h2>
-                <TextEditorContainer/>
+                <TextEditorContainer testAnswer={props.testAnswer}/>
             <p className={textStyles.testTitle}>{props.testResult}</p>
         </li>
     );
