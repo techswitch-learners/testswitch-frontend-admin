@@ -2,7 +2,6 @@
 import scss from './TestSubmissionsList.module.scss';
 import {TestSubmissionsResults} from "../TestSubmissionsResults/TestSubmissionsResults";
 
-
 export function TestSubmissionsList(): JSX.Element {
 
     //TODO: getTestSubmissions result from API
