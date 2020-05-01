@@ -21,7 +21,7 @@ const CandidateId: NextPage<CandidateProps> = ({candidate}) => {
             <CandidateGuid guid={candidate.guid}/>
             <hr className={textStyle.lineBreak}/>
             <h2 className={textStyle.subHeader}>Submissions</h2>
-            <TestSubmissionsList/>
+            <TestSubmissionsList tests={candidate.testSubmissions}/>
         </Layout>
     );
 };
