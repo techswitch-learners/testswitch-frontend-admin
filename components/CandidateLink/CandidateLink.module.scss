@@ -2,13 +2,18 @@
 
 .listItem{
   font-family: $softwireFont;
-  font-size: $contentFontSize;
+  font-size: $contentFontSizeMobile;
   color: $softwireWhite;
   @include list;
+  
+  @media(min-width: 768px){
+    font-size: $contentFontSize;
+  }
 }
 
 .link{
   @include link;
+  word-break: break-all;
 }
 
 .separator{
