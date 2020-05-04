@@ -1,18 +1,13 @@
-﻿import {tryLoginApi} from "../../api/loginApiClient.module";
-import React, {FormEvent, useState} from "react";
+﻿import React, {FormEvent, useState} from "react";
 import scss from "./LoginForm.module.scss";
 import {useRouter} from "next/router";
+import getConfig from "next/config";
 
-interface LoginFormProps {
-    userId: string;
-    password: string;
-    setUserId: (userId: string) => void;
-    setPassword: (password: string) => void;
-}
 
-export function LoginForm(props: LoginFormProps): JSX.Element {
-    
-    const {userId, password, setUserId, setPassword} = props;
+export function LoginForm(): JSX.Element {
+    const {publicRuntimeConfig} = getConfig();
+    const [userId, setUserId] = useState("");
+    const [password, setPassword] = useState("");
     const router = useRouter();
 
     function credentialsAreValid(statusCode: number): boolean {
@@ -28,9 +23,34 @@ export function LoginForm(props: LoginFormProps): JSX.Element {
         return true;
     }
 
-    async function tryLogin(event: FormEvent): Promise<void> {
-            const apiStatusCode = await tryLoginApi(props.userId, props.password);
-            credentialsAreValid(apiStatusCode) ? await router.push('/candidates') : {};
+    function tryLogin(event: FormEvent): void {
+        const ATTEMPT_SIGN_IN_API_URL = publicRuntimeConfig.API_URL + "/sign-in";
+        const formData = new FormData();
+        formData.append('email', userId);
+        formData.append('password', password);
+
+        fetch(ATTEMPT_SIGN_IN_API_URL, {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => {
+                if (response.status == 401) {
+                    alert("Unauthorized! Those details don't exist in our system.");
+                    throw new Error(response.statusText);
+                }
+                if (response.status == 400) {
+                    alert("Please enter a valid email and password.");
+                    throw new Error(response.statusText);
+                }
+                if (!response.ok) {
+                    alert("Something went wrong, please try again.");
+                    throw new Error(response.statusText);
+                }
+            })
+            .then(() => router.push('/candidates'))
+            .catch(error => {
+                console.log(error)
+            });
         event.preventDefault();
     }
 
@@ -42,8 +62,8 @@ export function LoginForm(props: LoginFormProps): JSX.Element {
                 <input
                     className={scss.input}
                     type={"email"}
-                    value={props.userId}
-                    onChange={event => props.setUserId(event.target.value)}
+                    value={userId}
+                    onChange={event => setUserId(event.target.value)}
                     required={true}
                 />
             </label>
@@ -53,12 +73,12 @@ export function LoginForm(props: LoginFormProps): JSX.Element {
                 <input
                     className={scss.input}
                     type={"password"}
-                    value={props.password}
-                    onChange={event => props.setPassword(event.target.value)}
+                    value={password}
+                    onChange={event => setPassword(event.target.value)}
                     required={true}
                 />
             </label>
             <button className={scss.login} type="submit">Log in</button>
         </form>
     );
-}
+} 
