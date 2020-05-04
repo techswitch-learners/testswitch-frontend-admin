@@ -9,15 +9,21 @@ $desktopSubHeaderFontSize: 30px;
 $mobileHeaderFontSize: 30px;
 $mobileSubHeaderFontSize: 20px;
 $contentFontSize: 20px;
+$contentFontSizeMobile: 16px;
 $buttonFontSize: 15px;
 
 //List Style
 @mixin list {
   list-style: none;
   display: block;
+  :hover{
+    cursor: pointer;
+  }
 }
 
 @mixin link {
   text-decoration: none;
+  padding: 6px 0;
+  margin: 2px 0;
 }
 
