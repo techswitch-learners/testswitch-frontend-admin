@@ -24,7 +24,7 @@ export function LoginForm(): JSX.Element {
     }
 
     function tryLogin(event: FormEvent): void {
-        const ATTEMPT_SIGN_IN_API_URL = "https://localhost:5001/sign-in";
+        const ATTEMPT_SIGN_IN_API_URL = publicRuntimeConfig.API_URL + "/sign-in";
         const formData = new FormData();
         formData.append('email', userId);
         formData.append('password', password);
