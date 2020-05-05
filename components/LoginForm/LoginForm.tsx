@@ -33,10 +33,7 @@ export function LoginForm(): JSX.Element {
             body: formData
         })
             .then(response => {
-                if (credentialsAreValid(response.status)) {
-                    //write guid to storage;
-                }
-                else {
+                if (!credentialsAreValid(response.status)) {
                     throw new Error(response.statusText);
                 }
             })

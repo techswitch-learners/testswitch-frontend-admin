@@ -6,6 +6,8 @@ import Layout from "../components/Layout/layout";
 import {CandidateList} from "../components/CandidateList/CandidateList";
 import Link from "next/link";
 import {Candidate, getCandidates, ListResponse} from "../api/candidatesApiClient";
+import cookies from "next-cookies";
+import getSessionIdFromCookie from "../helpers/GetSessionIdFromCookie";
 
 interface CandidatesProps {
     fetchCandidates: ListResponse<Candidate>;
@@ -27,11 +29,16 @@ const Candidates: NextPage<CandidatesProps> = ({fetchCandidates}) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async context => {
-
     const page = context.query.page ? parseInt(context.query.page.toString()) : 1;
     const pageSize = context.query.pageSize ? parseInt(context.query.pageSize.toString()) : 10;
-
-    const fetchCandidates = getCandidates(page, pageSize);
+    const sessionIdCookie = cookies(context).sessionId;
+    if (!sessionIdCookie){
+        context.res.writeHead(302,{Location: "/sign-in"});
+        context.res.end();
+        return {props: {}};
+    }
+    const sessionId = getSessionIdFromCookie(sessionIdCookie)
+    const fetchCandidates = getCandidates(page, pageSize, sessionId);
     return {
         props: {
             fetchCandidates: await fetchCandidates,
