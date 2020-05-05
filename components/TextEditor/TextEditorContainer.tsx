@@ -9,17 +9,16 @@ interface TestEditorContainerProps {
 
 export function TextEditorContainer(props: TestEditorContainerProps): JSX.Element {
     return (
-        <section className={scss.textEditorBox}>
-            <Editor
-                theme="dark"
-                height="60vh"
-                width="100%"
-                language="javascript"
-                value={props.testAnswer}
-                options={TextEditorSettings}
-            />
-        </section>
-
+                <section className={scss.textEditorBox}>
+                    <Editor
+                        theme="dark"
+                        height="60vh"
+                        width="90vw"
+                        language="javascript"
+                        value={props.testAnswer}
+                        options={TextEditorSettings}
+                    /> 
+                </section>
     )
 }
 
