@@ -2,21 +2,22 @@
 import {NextPage} from "next";
 import scss from "../pageStyles/index.module.scss"
 import Layout from "../components/Layout/layout";
+import {useEffect} from 'react'
+import {useRouter} from 'next/router'
+import Link from "next/link";
 
-const Home: NextPage = () =>
-    <Layout>
-        <h1 data-testid="page-render-test" className={scss.example}>Hello Admin Site</h1>
-    </Layout>;
+const Home: NextPage = () => {
+    
+    // const router = useRouter();
+    // useEffect(() => {
+    //         router.push('/candidates')
+    // }, []);
 
-Home.getInitialProps = ({res}) => {
-
-    if (res) {
-        res.writeHead(301, {
-            Location: 'candidates'
-        });
-        res.end();
-    }
-    return {};
+    return (
+        <Layout>
+            <Link href={"/login"}><h1 data-testid="page-render-test" className={scss.loginLink}>Click to login</h1></Link>
+        </Layout>
+        )
 };
 
 export default Home;

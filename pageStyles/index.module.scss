@@ -1,7 +1,9 @@
 ﻿@import 'constants';
 
-.example {
+.loginLink {
   font-size: $desktopHeaderFontSize;
   font-family: $softwireFont;
   color: $softwireYellow;
+  text-align: center;
+  cursor: pointer;
 }
