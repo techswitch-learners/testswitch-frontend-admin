@@ -32,7 +32,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
     const cookies = cookie.parse(context.req.headers.cookie || '');
     const sessionId = cookies.sessionId
     if (!sessionId) {
-        context.res.writeHead(302, {Location: "/sign-in"});
+        context.res.writeHead(302, {Location: "/login"});
         context.res.end();
         return {props: {}};
     }
