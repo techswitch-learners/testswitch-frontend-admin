@@ -4,4 +4,37 @@
   font-size: $desktopHeaderFontSize;
   font-family: $softwireFont;
   color: $softwireYellow;
+  text-align: center;
+}
+
+.lineBreak{
+  border: 2px solid $softwireYellow;
+}
+
+.linkBtnContainer{
+  margin-top: 25px;
+  text-align: center;
+}
+
+.linkBtn {
+  background-color: $softwireYellow;
+  text-decoration: none;
+  color: black;
+  border: none;
+  padding: 6px 12px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  margin-right: 10px;
+  alignment: center;
+
+  :hover{
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  @media (min-width: 769px) {
+    font-size: 20px;
+    padding: 5px 15px;
+  }
 }
