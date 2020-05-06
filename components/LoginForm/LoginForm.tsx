@@ -14,7 +14,10 @@ export function LoginForm(): JSX.Element {
         switch (statusCode) {
             case 200:
                 return true;
-            case 403:
+            case 400:
+                alert("Please enter a valid email and password.")
+                return false
+            case 401:
                 alert("Incorrect login details")
                 return false
             default:
@@ -43,7 +46,7 @@ export function LoginForm(): JSX.Element {
             .then(assertThatCredentialsAreValid)
             .then(response => response.json())
             .then (json => {
-                document.cookie = `session_id=${json.sessionId}`
+                document.cookie = `sessionId=${json.sessionId}; Secure; SameSite=lax`
             })
             .then(() => router.push('/candidates'))
             .catch(error => {
