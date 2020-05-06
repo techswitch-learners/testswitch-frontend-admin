@@ -2,12 +2,12 @@
 import scss from "./CreateCandidate.module.scss";
 import {useRouter} from "next/router";
 import getConfig from "next/config";
-import getCookieValueFromDocumentCookies from "../../helpers/GetCookieValueFromDocumentCookies";
+import cookie from "cookie";
 
 
 export function CreateCandidateForm(): JSX.Element {
 
-    const { publicRuntimeConfig } = getConfig();
+    const {publicRuntimeConfig} = getConfig();
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
@@ -19,8 +19,9 @@ export function CreateCandidateForm(): JSX.Element {
         formData.append('firstName', firstName);
         formData.append('lastName', lastName);
         formData.append('email', email);
-        const sessionId = getCookieValueFromDocumentCookies("sessionId")
-        
+        const cookies = cookie.parse(document.cookie);
+        const sessionId = cookies.sessionId;
+
         fetch(CREATE_CANDIDATE_API_URL, {
             method: 'POST',
             headers: {"Session-Id": sessionId},
@@ -45,44 +46,44 @@ export function CreateCandidateForm(): JSX.Element {
     }
 
     return (
-            <form onSubmit={tryCreateCandidate} className={scss.form}>
-                <label className={scss.label}>
-                    First Name:
-                    <br/>
-                    <input
-                        className={scss.input}
-                        type={"text"}
-                        name={"firstName"}
-                        value={firstName}
-                        onChange={event => setFirstName(event.target.value)}
-                        required={true}
-                    />
-                </label>
-                <label className={scss.label}>
-                    Last Name:
-                    <br/>
-                    <input
-                        className={scss.input}
-                        type={"text"}
-                        name={"lastName"}
-                        value={lastName}
-                        onChange={event => setLastName(event.target.value)}
-                        required={true}
-                    />
-                </label>
-                <label className={scss.label}>
-                    Email Address:
-                    <br/>
-                    <input
-                        className={scss.input}
-                        type={"email"}
-                        name={"email"}
-                        value={email}
-                        onChange={event => setEmail(event.target.value)}
-                        required={true}
-                    />
-                </label>
-                <button className={scss.createButton} type="submit">Create</button>
-            </form>
+        <form onSubmit={tryCreateCandidate} className={scss.form}>
+            <label className={scss.label}>
+                First Name:
+                <br/>
+                <input
+                    className={scss.input}
+                    type={"text"}
+                    name={"firstName"}
+                    value={firstName}
+                    onChange={event => setFirstName(event.target.value)}
+                    required={true}
+                />
+            </label>
+            <label className={scss.label}>
+                Last Name:
+                <br/>
+                <input
+                    className={scss.input}
+                    type={"text"}
+                    name={"lastName"}
+                    value={lastName}
+                    onChange={event => setLastName(event.target.value)}
+                    required={true}
+                />
+            </label>
+            <label className={scss.label}>
+                Email Address:
+                <br/>
+                <input
+                    className={scss.input}
+                    type={"email"}
+                    name={"email"}
+                    value={email}
+                    onChange={event => setEmail(event.target.value)}
+                    required={true}
+                />
+            </label>
+            <button className={scss.createButton} type="submit">Create</button>
+        </form>
     );
 }
