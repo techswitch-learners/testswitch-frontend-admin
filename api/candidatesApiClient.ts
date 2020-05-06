@@ -28,7 +28,7 @@ export async function getCandidates(page: number, pageSize: number, sessionId: s
     const {publicRuntimeConfig} = getConfig();
     const apiURL = publicRuntimeConfig.API_URL;
     const response = await fetch(
-        `${apiURL}/candidates?page=${page}&pageSize=${pageSize}/`,
+        `${apiURL}/candidates?page=${page}&pageSize=${pageSize}`,
         {headers: {"Session-Id": sessionId}});
 
     if (response.ok) {
