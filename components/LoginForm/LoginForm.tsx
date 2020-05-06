@@ -22,6 +22,13 @@ export function LoginForm(): JSX.Element {
                 return false;
         }
     }
+    
+    function assertThatCredentialsAreValid (response: Response): Response {
+        if (!credentialsAreValid(response.status)){
+            throw new Error (response.statusText)
+        }
+        return response
+    }
 
     function tryLogin(event: FormEvent): void {
         const ATTEMPT_SIGN_IN_API_URL = publicRuntimeConfig.API_URL + "/sign-in";
@@ -33,10 +40,10 @@ export function LoginForm(): JSX.Element {
             method: 'POST',
             body: formData
         })
-            .then(response => {
-                if (!credentialsAreValid(response.status)) {
-                    throw new Error(response.statusText);
-                }
+            .then(assertThatCredentialsAreValid)
+            .then(response => response.json())
+            .then (json => {
+                document.cookie = `session_id=${json.sessionId}`
             })
             .then(() => router.push('/candidates'))
             .catch(error => {
