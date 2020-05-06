@@ -6,44 +6,35 @@ import getConfig from "next/config";
 
 export function LoginForm(): JSX.Element {
     const {publicRuntimeConfig} = getConfig();
-    const [userId, setUserId] = useState("");
-    const [password, setPassword] = useState("");
+    const [userEmail, setUserEmail] = useState("");
+    const [userPassword, setUserPassword] = useState("");
     const router = useRouter();
 
     function credentialsAreValid(statusCode: number): boolean {
-
-        if (statusCode == 403) {
-            alert("Those details are not in our system! Please try again");
-            return false;
+        switch (statusCode) {
+            case 200:
+                return true;
+            case 403:
+                alert("Incorrect login details")
+                return false
+            default:
+                alert("Something went wrong, please try again.");
+                return false;
         }
-        if (statusCode != 200) {
-            alert("Something went wrong, please try again.");
-            return false;
-        }
-        return true;
     }
 
     function tryLogin(event: FormEvent): void {
         const ATTEMPT_SIGN_IN_API_URL = publicRuntimeConfig.API_URL + "/sign-in";
         const formData = new FormData();
-        formData.append('email', userId);
-        formData.append('password', password);
+        formData.append('email', userEmail);
+        formData.append('password', userPassword);
 
         fetch(ATTEMPT_SIGN_IN_API_URL, {
             method: 'POST',
             body: formData
         })
             .then(response => {
-                if (response.status == 401) {
-                    alert("Unauthorized! Those details don't exist in our system.");
-                    throw new Error(response.statusText);
-                }
-                if (response.status == 400) {
-                    alert("Please enter a valid email and password.");
-                    throw new Error(response.statusText);
-                }
-                if (!response.ok) {
-                    alert("Something went wrong, please try again.");
+                if (!credentialsAreValid(response.status)) {
                     throw new Error(response.statusText);
                 }
             })
@@ -62,8 +53,8 @@ export function LoginForm(): JSX.Element {
                 <input
                     className={scss.input}
                     type={"email"}
-                    value={userId}
-                    onChange={event => setUserId(event.target.value)}
+                    value={userEmail}
+                    onChange={event => setUserEmail(event.target.value)}
                     required={true}
                 />
             </label>
@@ -73,8 +64,8 @@ export function LoginForm(): JSX.Element {
                 <input
                     className={scss.input}
                     type={"password"}
-                    value={password}
-                    onChange={event => setPassword(event.target.value)}
+                    value={userPassword}
+                    onChange={event => setUserPassword(event.target.value)}
                     required={true}
                 />
             </label>
