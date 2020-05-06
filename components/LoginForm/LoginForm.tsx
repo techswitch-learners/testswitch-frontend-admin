@@ -11,14 +11,15 @@ export function LoginForm(): JSX.Element {
     const router = useRouter();
 
     function credentialsAreValid(statusCode: number): boolean {
-        if (statusCode == 200) {
-            return true;
-        } else if (statusCode == 403) {
-            alert("Incorrect login details")
-            return false
-        } else {
-            alert("Something went wrong, please try again.");
-            return false;
+        switch (statusCode) {
+            case 200:
+                return true;
+            case 403:
+                alert("Incorrect login details")
+                return false
+            default:
+                alert("Something went wrong, please try again.");
+                return false;
         }
     }
 

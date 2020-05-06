@@ -2,8 +2,7 @@
 import scss from "./CreateCandidate.module.scss";
 import {useRouter} from "next/router";
 import getConfig from "next/config";
-import getSessionIdFromCookie from "../../helpers/GetSessionIdFromCookie";
-import cookies from "next-cookies";
+import getCookieValueFromDocumentCookies from "../../helpers/GetCookieValueFromDocumentCookies";
 
 
 export function CreateCandidateForm(): JSX.Element {
@@ -20,7 +19,7 @@ export function CreateCandidateForm(): JSX.Element {
         formData.append('firstName', firstName);
         formData.append('lastName', lastName);
         formData.append('email', email);
-        const sessionId = getSessionIdFromCookie(document.cookie);
+        const sessionId = getCookieValueFromDocumentCookies("sessionId")
         
         fetch(CREATE_CANDIDATE_API_URL, {
             method: 'POST',

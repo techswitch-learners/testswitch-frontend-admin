@@ -6,8 +6,8 @@ import Layout from "../components/Layout/layout";
 import {CandidateList} from "../components/CandidateList/CandidateList";
 import Link from "next/link";
 import {Candidate, getCandidates, ListResponse} from "../api/candidatesApiClient";
-import cookies from "next-cookies";
 import getSessionIdFromCookie from "../helpers/GetSessionIdFromCookie";
+import cookies from "next-cookies";
 
 interface CandidatesProps {
     fetchCandidates: ListResponse<Candidate>;

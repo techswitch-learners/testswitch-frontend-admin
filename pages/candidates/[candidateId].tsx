@@ -4,7 +4,9 @@ import textStyle from "../../pageStyles/text-classes.module.scss"
 import Layout from "../../components/Layout/layout";
 import {TestSubmissionsList} from "../../components/TestSubmissionsList/TestSubmissionsList";
 import {CandidateGuid} from "../../components/CandidateGuid/CandidateGuid";
-import {Candidate, getCandidateById} from "../../api/candidatesApiClient";
+import {Candidate, getCandidateById, getCandidates} from "../../api/candidatesApiClient";
+import cookies from "next-cookies";
+import getSessionIdFromCookie from "../../helpers/GetSessionIdFromCookie";
 
 interface CandidateProps {
     candidate: Candidate;
@@ -28,7 +30,14 @@ const CandidateId: NextPage<CandidateProps> = ({candidate}) => {
 
 export const getServerSideProps: GetServerSideProps = async context => {
     const candidateId = context.query.candidateId as string;
-    const candidateData = getCandidateById(parseInt(candidateId));
+    const sessionIdCookie = cookies(context).sessionId;
+    if (!sessionIdCookie){
+        context.res.writeHead(302,{Location: "/sign-in"});
+        context.res.end();
+        return {props: {}};
+    }
+    const sessionId = getSessionIdFromCookie(sessionIdCookie)
+    const candidateData = getCandidateById(parseInt(candidateId), sessionId);
 
     return {
         props: {
