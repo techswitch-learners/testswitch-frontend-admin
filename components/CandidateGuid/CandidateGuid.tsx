@@ -1,5 +1,6 @@
 ﻿import textStyles from "../CandidateGuid/CandidateGuid.module.scss";
 import React from "react";
+import getConfig from "next/config";
 
 interface CandidateProps {
     guid: string;
@@ -7,7 +8,8 @@ interface CandidateProps {
 
 
 export function CandidateGuid(props: CandidateProps): JSX.Element {
-    const baseUrl = `https://testswitch-candidate.herokuapp.com`;
+    const {publicRuntimeConfig} = getConfig();
+    const baseUrl = publicRuntimeConfig.GUID_URL;
     const guid = props.guid;
     return (
         <div className={textStyles.guidContainer}>
